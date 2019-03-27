@@ -101,10 +101,13 @@ namespace Turbo.Plugins.James
         {
             if (keyEvent.IsPressed && PressKeyEvent.Matches(keyEvent))
             {
+	    	    Show = !Show;
+		    /*
 	            if (Show)
 	            	Show = false;
 	            else
 	            	Show = true;
+		    */
             }
         }
     }
