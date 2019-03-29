@@ -150,8 +150,8 @@ namespace Turbo.Plugins.James
 		    form.Text = title;
 		    label.Text = content;
 		    textBox.Text = value;
-		    buttonOk.Text = "확인";
-		    buttonCancel.Text = "취소";
+		    buttonOk.Text = "OK";
+		    buttonCancel.Text = "Cancel";
 		
 		    buttonOk.DialogResult = DialogResult.OK;
 		    buttonCancel.DialogResult = DialogResult.Cancel;
