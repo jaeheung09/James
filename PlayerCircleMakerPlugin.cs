@@ -112,7 +112,7 @@ namespace Turbo.Plugins.James
 			    				else
 			    				   	UserStrokeWidth = 2.0f;
 			    				   	
-			    			      Hud.Sound.Speak(tmp);
+			    			      //Hud.Sound.Speak(tmp);
 			    				break;			    				
 			    		}
 			    }
