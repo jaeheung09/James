@@ -107,7 +107,7 @@ namespace Turbo.Plugins.James
 			    			case 5:
 			    			     float fnum;
 			    				Success = float.TryParse(tmp, out fnum);
-			    				if (Success && (fnum >= 1.0f && fnum <= 500.0f))
+			    				if (Success && (fnum >= 1.0f && fnum <= 20.0f))
 			    					UserStrokeWidth = fnum;
 			    				else
 			    				   	UserStrokeWidth = 2.0f;
