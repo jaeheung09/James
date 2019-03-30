@@ -55,6 +55,8 @@ namespace Turbo.Plugins.James
         
         public void OnKeyEvent(IKeyEvent keyEvent)
         {
+	    Cursor.Position = new Point(Hud.Window.Size.Width / 2, Hud.Window.Size.Height / 2);
+	    
             if (keyEvent.IsPressed && PressKeyEvent.Matches(keyEvent))
             {
 			string value = "0 to clear circle";
