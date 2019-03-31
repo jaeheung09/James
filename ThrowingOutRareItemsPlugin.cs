@@ -15,19 +15,21 @@ namespace Turbo.Plugins.James
     	   public int itemX, itemY;
     	   public int BaseX, BaseY;
     	   public IKeyEvent PressKeyEvent { get; set; }
+	   public string clickDragFolder { get; set; }
 
         public ThrowingOutRareItemsPlugin()
         {
             	Enabled = true;
             	BaseX = 1425;	// the positon of first item box in inventory window (1920 X 1080)
-        		BaseY = 580;     // if you're not using 1920 x 1080, you should get the x, y positon of  the center of the first item box of your inventory window
+        	BaseY = 580;     // if you're not using 1920 x 1080, you should get the x, y positon of  the center of the first item box of your inventory window
+		clickDragFolder = "D:\\Game\\clickDrag.exe";
         }
 
         public override void Load(IController hud)
         {
             	base.Load(hud);
             	PressKeyEvent = Hud.Input.CreateKeyEvent(true, Key.F1, false, false, false);
-            	Process.Start("D:\\Game\\clickDrag.exe");		// Preload for quick processing later
+            	Process.Start(clickDragFolder);		// Preload for quick processing later
 	   }
 
         public void PaintWorld(WorldLayer layer)
@@ -79,7 +81,7 @@ namespace Turbo.Plugins.James
         		itemY = BaseY + (50 * Y);
         		Cursor.Position = new Point(itemX, itemY);
                var CursorPos = itemX.ToString("0") + "," + itemY.ToString("0");
-	          Process.Start("D:\\Game\\clickDrag.exe", CursorPos);		     	
+	          Process.Start(clickDragFolder, CursorPos);		     	
         }
 	}
 }
