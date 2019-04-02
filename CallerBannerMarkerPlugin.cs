@@ -16,9 +16,9 @@ namespace Turbo.Plugins.James
         public TopLabelDecorator TagDecorator { get; set; }
 	   private readonly HashSet<ActorSnoEnum> _bannersSnoList = new HashSet<ActorSnoEnum>();
 	   private bool BannerShow { get; set; }
-        private string [] CallSign = new string [] {"11", "±ê", "¿À¼¼¿ä"};	// *** change or add your own caller's conventional phrases ***
+        private string [] CallSign = new string [] {"11", "ê¹ƒ", "ì˜¤ì„¸ìš”"};	// *** change or add your own caller's conventional phrases ***
         private string Caller { get; set; }
-        private string partyId = "[ÆÄÆ¼]";	// *** [party][<clan>player] <-- replace "[ÆÄÆ¼]" with an accurate string for the party in your language
+        private string partyId = "[íŒŒí‹°]";	// *** [party][<clan>player] <-- replace "[íŒŒí‹°]" with an accurate string for the party in your language
 	   private static System.Timers.Timer aTimer;		// for deleteing the ready-made caller markerafter a period of time : 15 secs (default)
 
         public CallerBannerMarkerPlugin()
@@ -155,18 +155,18 @@ namespace Turbo.Plugins.James
 				{
 				    if (currentLine.Contains(sign))
 				    {
-				    		Hud.Sound.Speak("There's a call for you.");		// È£ÃâÀÔ´Ï´Ù.
-				    		Match match = Regex.Match(currentLine, @"(?<=\>).+(?=\])");	//[ÆÄÆ¼][<xxx>YYY]: 11
+				    		Hud.Sound.Speak("There's a call for you.");		// í˜¸ì¶œìž…ë‹ˆë‹¤.
+				    		Match match = Regex.Match(currentLine, @"(?<=\>).+(?=\])");	//[íŒŒí‹°][<xxx>YYY]: 11
 					     if (match.Success)
 					        Caller = match.Value;
 					     else
 					     {
-					    		match = Regex.Match(currentLine, @"(?<=(h\[)).+(?=\])");	//[ÆÄÆ¼][YYY]: 11.. internal chat line is different from being seen
+					    		match = Regex.Match(currentLine, @"(?<=(h\[)).+(?=\])");	//[íŒŒí‹°][YYY]: 11.. internal chat line is different from being seen
 					          if (match.Success)
 					          		Caller = match.Value;
 					     }
 					     Hud.Sound.Speak(Caller);
-					     Hud.TextLog.Log("Chat",currentLine, true, false);
+					     
 					     BannerShow = true;
 					}
 				}
@@ -192,7 +192,7 @@ namespace Turbo.Plugins.James
             if (keyEvent.IsPressed && PressKeyEvent.Matches(keyEvent))
             {
 	        	//BannerShow = !BannerShow;
-	        	OnChatLineChanged("[ÆÄÆ¼] |HOnlUserHdl:46527f4-4433-3|h[usok]|h: 11", "");
+	        	OnChatLineChanged("[íŒŒí‹°] |HOnlUserHdl:46527f4-4433-3|h[usok]|h: 11", "");
 	      }
         }
 */
