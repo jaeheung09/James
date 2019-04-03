@@ -20,9 +20,9 @@ namespace Turbo.Plugins.James
         private TopLabelDecorator TagDecorator { get; set; }
 	   private readonly HashSet<ActorSnoEnum> _bannersSnoList = new HashSet<ActorSnoEnum>();
 	   private bool BannerShow { get; set; }
-        private string [] CallSign = new string [] {"11", "±ê", "¿À¼¼¿ä"};	// *** change or add your own caller's conventional phrases ***
+        private string [] CallSign = new string [] {"11", "ê¹ƒ", "ì˜¤ì„¸ìš”"};	// *** change or add your own caller's conventional phrases ***
         private string Caller { get; set; }
-        private string partyId = "[ÆÄÆ¼]";	// *** [party][<clan>player] <-- replace "[ÆÄÆ¼]" with an accurate string for the party in your language
+        private string partyId = "[íŒŒí‹°]";	// *** [party][<clan>player] <-- replace "[íŒŒí‹°]" with an accurate string for the party in your language
 	   private static System.Timers.Timer aTimer;		// for deleteing the ready-made caller markerafter a period of time : 15 secs (default)
         private int w, h, x, y;
         
@@ -158,6 +158,7 @@ namespace Turbo.Plugins.James
 					 CallerPopupDecorator.Paint(x, y , w, h, tmpPlayer, " Caller ");
 					 
 	                      IsCalled = false;
+			      break;
 		          }
 		      }
 		  }
@@ -166,27 +167,32 @@ namespace Turbo.Plugins.James
         public void OnChatLineChanged(string currentLine, string previousLine)
         {
 			if (string.IsNullOrEmpty(currentLine)) return;
-                //Hud.TextLog.Log("Chat",currentLine, true, true);
-                
+                                
 			if (currentLine.Contains(partyId))
 			{
 				foreach (string sign in CallSign)
 				{
-				    if (currentLine.Contains(sign))
+				    string pattern = "(?<=: )(" + sign + "|" + sign + " )$";
+				    Match match = Regex.Match(currentLine, @pattern);
+				    if (match.Success)
 				    {
-				    		Hud.Sound.Speak("Call for you!");		// È£ÃâÀÔ´Ï´Ù.
-				    		Match match = Regex.Match(currentLine, @"(?<=\> ).+(?=\])");	//[ÆÄÆ¼][<xxx>YYY]: 11
+				    		match = Regex.Match(currentLine, @"(?<=\|h\[).+(?=\]\|h)");
 					     if (match.Success)
-					        Caller = match.Value;
-					     else
 					     {
-					    		match = Regex.Match(currentLine, @"(?<=(h\[)).+(?=\])");	//[ÆÄÆ¼][YYY]: 11.. internal chat line is different from being seen
+					     		Caller = match.Value;
+					    		match = Regex.Match(match.Value, @"(?<=\> ).+");
 					          if (match.Success)
 					          		Caller = match.Value;
 					     }
-					     Hud.Sound.Speak(Caller);
-					     BannerShow = true;
+					     int sLen = Caller.Length;
+					     if (sLen <= 12)		// Blizzard naming max : two bytes: 8 characters, one byte: 12 characters
+					     {
+					     		BannerShow = true;
+					     		Hud.Sound.Speak("a Call for you!" + Caller);
+					     } else
+					     		BannerShow = false;
 					}
+
 				}
 
 				// start the timer setting
@@ -210,8 +216,8 @@ namespace Turbo.Plugins.James
             if (keyEvent.IsPressed && PressKeyEvent.Matches(keyEvent))
             {
 	        	//BannerShow = !BannerShow;
-	        	//OnChatLineChanged("[ÆÄÆ¼] |HOnlUserHdl:46527f4-4433-3|h[¾ÆÁ¦]|h: 11", "");
-	        	OnChatLineChanged("[ÆÄÆ¼] |HOnlUserHdl:c51417-4433-3|h[<¾²¸®°í> °í¾çÀÌ]|h: 11", "");
+	        	//OnChatLineChanged("[íŒŒí‹°] |HOnlUserHdl:46527f4-4433-3|h[ì•„ì œ]|h: 11", "");
+	        	OnChatLineChanged("[íŒŒí‹°] |HOnlUserHdl:c51417-4433-3|h[<ì“°ë¦¬ê³ > ê³ ì–‘ì´]|h: 11", "");
 	      }
         }
 */
