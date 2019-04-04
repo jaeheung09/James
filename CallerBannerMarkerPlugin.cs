@@ -172,7 +172,7 @@ namespace Turbo.Plugins.James
 			{
 				foreach (string sign in CallSign)
 				{
-				    string pattern = "(?<=: )(" + sign + "|" + sign + " )$";
+				    string pattern = "h: " + sign + "([ .])?$";
 				    Match match = Regex.Match(currentLine, @pattern);
 				    if (match.Success)
 				    {
