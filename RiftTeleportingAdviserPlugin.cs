@@ -150,6 +150,7 @@ namespace Turbo.Plugins.James
 				      if (DrawIt)
 				      {
 				      	// var Hero = player.HeroName;		// wonder if this works in English, but not in Korean. If it works, no need the switch statement below
+					 var Hero = string.Empty;
 				          	switch (player.HeroClassDefinition.HeroClass)
               				{
                	    				case HeroClass.Monk:
