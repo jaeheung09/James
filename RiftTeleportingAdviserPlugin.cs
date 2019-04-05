@@ -149,29 +149,29 @@ namespace Turbo.Plugins.James
 
 				      if (DrawIt)
 				      {
-				      	// var Hero = player.HeroName;		// wonder if this works in English, but not in Korean. It it works, no need the switch statement below
+				      	// var Hero = player.HeroName;		// wonder if this works in English, but not in Korean. If it works, no need the switch statement below
 				          	switch (player.HeroClassDefinition.HeroClass)
               				{
                	    				case HeroClass.Monk:
-               	    					Hero = "ºˆµµ";
+               	    					Hero = "ÏàòÎèÑ";
                	    					break;
                	    				case HeroClass.Wizard:
-               	    					Hero = "π˝ªÁ";
+               	    					Hero = "Î≤ïÏÇ¨";
                	    					break;
                	    				case HeroClass.Crusader:
-               	    					Hero = "º∫¿¸";
+               	    					Hero = "ÏÑ±Ï†Ñ";
                	    					break;
                	    				case HeroClass.Barbarian:
-               	    					Hero = "æﬂ∏∏";
+               	    					Hero = "ÏïºÎßå";
                	    					break;
                	    				case HeroClass.DemonHunter:
-               	    					Hero = "æ«ªÁ";
+               	    					Hero = "ÏïÖÏÇ¨";
                	    					break;
                	    				case HeroClass.WitchDoctor:
-               	    					Hero = "∫ŒµŒ";
+               	    					Hero = "Î∂ÄÎëê";
                	    					break;
                	    				case HeroClass.Necromancer:
-               	    					Hero = "∞≠∑…";
+               	    					Hero = "Í∞ïÎ†π";
                	    					break;
                	    			 }
 
