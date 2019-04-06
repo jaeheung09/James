@@ -81,7 +81,7 @@ namespace Turbo.Plugins.James
 	       foreach (var player in Hud.Game.Players)
 	       {
 	       	cnt++;
-	       	if (player.IsInTown) continue;
+	       	if (player.IsInTown || player.InGreaterRift) continue;
 	       	PlayerAreaName = player.SnoArea.NameLocalized;	// player.SnoArea.NameEnglish
 	       	Match match = Regex.Match(PlayerAreaName, @"\d");
 
