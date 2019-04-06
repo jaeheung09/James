@@ -17,6 +17,8 @@ namespace Turbo.Plugins.James
         private readonly HashSet<ActorSnoEnum> _bannersSnoList = new HashSet<ActorSnoEnum>();
 	   private bool BannerShow { get; set; }
         private string myLocation { get; set; }
+	private string RiftId = "[임시]";		// Need to replace it with your own language : the word that must be in a rift loccation
+
 
         public RiftTeleportingAdviserPlugin()
         {
@@ -82,7 +84,9 @@ namespace Turbo.Plugins.James
 	       {
 	       	cnt++;
 	       	if (player.IsInTown || player.InGreaterRift) continue;
+		
 	       	PlayerAreaName = player.SnoArea.NameLocalized;	// player.SnoArea.NameEnglish
+		if (!PlayerAreaName.Contains(RiftId)) continue;
 	       	Match match = Regex.Match(PlayerAreaName, @"\d");
 
 			if (match.Success)
