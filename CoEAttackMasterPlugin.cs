@@ -236,10 +236,10 @@ namespace Turbo.Plugins.James
 			     	string text = "*** Ready to attack ***";
 		     		//Hud.Sound.Speak("공격 준비!");
 			     	//string text = "*** 공격 준비 ***";			     	
-				Hud.RunOnPlugin<PopupInformPlugin>(plugin =>
+				Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
                 	{ 
-				   	//plugin.Show(text, "Preparation!", TimeLeftBeforeAttack*1000, "", PopupMsgPlugin.EnumPopupDecoratorToUse.Default);
-				   	plugin.Show(text, " 준 비 !", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
+				   	plugin.Show(text, "Preparation!", TimeLeftBeforeAttack*1000, "", PopupMsgPlugin.EnumPopupDecoratorToUse.Default);
+				   	//plugin.Show(text, " 준 비 !", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
                      });			     	
 		     }
 
@@ -265,7 +265,7 @@ namespace Turbo.Plugins.James
 				string text = ">>> Attack !!! <<<";
 				//Hud.Sound.Speak("공격!");
 				//string text = ">>> 공 격 !!! <<<";
-				Hud.RunOnPlugin<PopupInformPlugin>(plugin =>
+				Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
                 	{
 				   	plugin.Show(text, "* Now! *", 4000, "", PopupMsgPlugin.EnumPopupDecoratorToUse.Default);
 				   	//plugin.Show(text, "* 지금 능력 최고! *", 4000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Type2);
