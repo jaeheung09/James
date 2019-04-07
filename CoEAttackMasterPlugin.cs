@@ -67,13 +67,13 @@ namespace Turbo.Plugins.James
 
             RuleCalculator = new BuffRuleCalculator(Hud);
 
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ∫Ò¿¸
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ≥√±‚
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // »≠ø∞
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ω≈º∫
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // π¯∞≥
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // π∞∏Æ
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // µ∂
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ÎπÑÏ†Ñ
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ÎÉâÍ∏∞
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // ÌôîÏóº
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ïã†ÏÑ±
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // Î≤àÍ∞ú
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // Î¨ºÎ¶¨
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // ÎèÖ
         }
 
         private IEnumerable<BuffRule> GetCurrentRules(HeroClass heroClass)
@@ -172,7 +172,7 @@ namespace Turbo.Plugins.James
                 } else
                 	info.TimeLeftNumbersOverride = false;
 
-		      if (info.TimeLeft == TimeLeftBeforeAttack && Alarm && best)
+		      if ((info.TimeLeft == TimeLeftBeforeAttack) && Alarm && best && (orderIndex == 1))
                 {
                 	TimerStarted = true;
                 	
