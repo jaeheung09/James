@@ -48,7 +48,7 @@ namespace Turbo.Plugins.James
         public CoEAttackMasterPlugin()
         {
             Enabled = true;
-            ReadyToAttack.SoundLocation = "D:/Game/TurboD3/sounds/notification_10.wav";
+            ReadyToAttack.SoundLocation = "sounds/notification_10.wav";
             ReadyToAttack.LoadAsync();
         }
 
