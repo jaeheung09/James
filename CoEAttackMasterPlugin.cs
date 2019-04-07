@@ -100,13 +100,13 @@ namespace Turbo.Plugins.James
         	  	{
         	  		if (Speak)
         	  		{
-        	  			Hud.Sound.Speak("Attack Instructions start!");
-        	  			//Hud.Sound.Speak("공격 안내 시작!");
+        	  			Hud.Sound.Speak("Attack Instructions end!");
+        	  			//Hud.Sound.Speak("공격 안내 끝!");
         	  			Speak = false;
         	  		} else
         	  		{
-        	  			Hud.Sound.Speak("Attack Instructions end!");
-        	  			//Hud.Sound.Speak("공격 안내 끝!");
+        	  			Hud.Sound.Speak("Attack Instructions start!");
+        	  			//Hud.Sound.Speak("공격 안내 시작!");
         	  			Speak = true;
         	  		}
         	  	}
