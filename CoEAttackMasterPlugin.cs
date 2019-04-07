@@ -67,13 +67,13 @@ namespace Turbo.Plugins.James
 
             RuleCalculator = new BuffRuleCalculator(Hud);
 
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ∫Ò¿¸
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ≥√±‚
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // »≠ø∞
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ω≈º∫
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // π¯∞≥
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // π∞∏Æ
-            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // µ∂
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ÎπÑÏ†Ñ
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ÎÉâÍ∏∞
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // ÌôîÏóº
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ïã†ÏÑ±
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // Î≤àÍ∞ú
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // Î¨ºÎ¶¨
+            RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // ÎèÖ
         }
 
         private IEnumerable<BuffRule> GetCurrentRules(HeroClass heroClass)
@@ -100,13 +100,13 @@ namespace Turbo.Plugins.James
         	  	{
         	  		if (Speak)
         	  		{
-        	  			//Hud.Sound.Speak("Attack Instructions start!");
-        	  			Hud.Sound.Speak("∞¯∞› æ»≥ª Ω√¿€!");
+        	  			Hud.Sound.Speak("Attack Instructions start!");
+        	  			//Hud.Sound.Speak("Í≥µÍ≤© ÏïàÎÇ¥ ÏãúÏûë!");
         	  			Speak = false;
         	  		} else
         	  		{
-        	  			//Hud.Sound.Speak("Attack Instructions end!");
-        	  			Hud.Sound.Speak("∞¯∞› æ»≥ª ≥°!");
+        	  			Hud.Sound.Speak("Attack Instructions end!");
+        	  			//Hud.Sound.Speak("Í≥µÍ≤© ÏïàÎÇ¥ ÎÅù!");
         	  			Speak = true;
         	  		}
         	  	}
@@ -232,14 +232,14 @@ namespace Turbo.Plugins.James
 		     {
 		     		//Console.Beep(900, 200);
 		     		ReadyToAttack.PlaySync();
-		     		//Hud.Sound.Speak("Ready to attack!");
-			     	//string text = "*** Ready to attack ***";
-		     		Hud.Sound.Speak("∞¯∞› ¡ÿ∫Ò!");
-			     	string text = "*** ∞¯∞› ¡ÿ∫Ò ***";			     	
+		     		Hud.Sound.Speak("Ready to attack!");
+			     	string text = "*** Ready to attack ***";
+		     		//Hud.Sound.Speak("Í≥µÍ≤© Ï§ÄÎπÑ!");
+			     	//string text = "*** Í≥µÍ≤© Ï§ÄÎπÑ ***";			     	
 				Hud.RunOnPlugin<PopupInformPlugin>(plugin =>
                 	{ 
-				   	//plugin.Show(text, "Preparation!", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
-				   	plugin.Show(text, " ¡ÿ ∫Ò !", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
+				   	plugin.Show(text, "Preparation!", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
+				   	//plugin.Show(text, " Ï§Ä ÎπÑ !", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
                      });			     	
 		     }
 
@@ -261,14 +261,14 @@ namespace Turbo.Plugins.James
 				CountTimer.AutoReset = true;
 				CountTimer.Enabled = true;
 				
-				//Hud.Sound.Speak("Attack!");
-				//string text = ">>> Attack !!! <<<";
-				Hud.Sound.Speak("∞¯∞›!");
-				string text = ">>> ∞¯ ∞› !!! <<<";
+				Hud.Sound.Speak("Attack!");
+				string text = ">>> Attack !!! <<<";
+				//Hud.Sound.Speak("Í≥µÍ≤©!");
+				//string text = ">>> Í≥µ Í≤© !!! <<<";
 				Hud.RunOnPlugin<PopupInformPlugin>(plugin =>
                 	{
-				   	//plugin.Show(text, "* Now! *", 4000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Type2);
-				   	plugin.Show(text, "* ¡ˆ±› ¥…∑¬ √÷∞Ì! *", 4000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Type2);
+				   	plugin.Show(text, "* Now! *", 4000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Type2);
+				   	//plugin.Show(text, "* ÏßÄÍ∏à Îä•Î†• ÏµúÍ≥†! *", 4000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Type2);
                      });
 			}
         }
