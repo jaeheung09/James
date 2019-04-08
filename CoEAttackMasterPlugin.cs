@@ -265,8 +265,8 @@ namespace Turbo.Plugins.James
 					Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
 					//Hud.RunOnPlugin<PopupInformPlugin>(plugin =>
 	                	{
-					   	plugin.Show(text, "Preparation!", TimeLeftBeforeAttack*1000, "", PopupMsgPlugin.EnumPopupDecoratorToUse.Default);
-					   	//plugin.Show(text, " 준 비 !", TimeLeftBeforeAttack*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
+					   	plugin.Show(text, "Preparation!", (TimeLeftBeforeAttack-1)*1000, "", PopupMsgPlugin.EnumPopupDecoratorToUse.Default);
+					   	//plugin.Show(text, " 준 비 !", (TimeLeftBeforeAttack-1)*1000, "", PopupInformPlugin.EnumPopupDecoratorToUse.Default);
 	                     });
 	                }
 		     }
