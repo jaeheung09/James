@@ -56,7 +56,7 @@ namespace Turbo.Plugins.James
             	PopupDecorator = new TopLabelWithTitleDecorator(Hud)
             	{
 	                BorderBrush = Hud.Render.CreateBrush(255, 180, 147, 109, -1),
-	                BackgroundBrush = Hud.Render.CreateBrush(200, 0, 0, 0, 0),
+	                BackgroundBrush = Hud.Render.CreateBrush(100, 0, 0, 0, 0),	// 200
 	                TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 255, 255, 255, true, false, false),
 	                TitleFont = Hud.Render.CreateFont("tahoma", 6, 255, 180, 147, 109, true, false, false),
            	 };
