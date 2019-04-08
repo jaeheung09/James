@@ -48,6 +48,7 @@ namespace Turbo.Plugins.James
         public CoEAttackMasterPlugin()
         {
             Enabled = true;
+	    // if you got an compile error, put the full path (ex. "D:/Game/Turbo/sounds/notification_10.wav")
             ReadyToAttack.SoundLocation = "sounds/notification_10.wav";
             ReadyToAttack.LoadAsync();
         }
