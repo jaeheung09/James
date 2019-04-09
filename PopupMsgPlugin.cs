@@ -69,7 +69,7 @@ namespace Turbo.Plugins.James
             	  {
             	  	w = p.Text.Length * 13;
 				if (w < 65) w = 65;
-				h = 65;
+				h = 60;
 				x = Hud.Window.Size.Width / 2 - (int)(w / 2);
             	  	
             	  	switch (p.PopUpDecoratorTouse)
