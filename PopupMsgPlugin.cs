@@ -33,14 +33,7 @@ namespace Turbo.Plugins.James
         
         public void Show(string text, string title, int duration, string hint = null, EnumPopupDecoratorToUse popupDecoratorToUse = EnumPopupDecoratorToUse.Default)
         {
-            try
-            { 
             	Hud.Queue.AddItem(new Popup(text, title, new TimeSpan(0, 0, 0, 0, duration), hint, popupDecoratorToUse));
-            }
-            catch(Exception ex)
-		 {
-		     throw;
-		 }
         }
                 
         public PopupMsgPlugin()
@@ -93,9 +86,9 @@ namespace Turbo.Plugins.James
 				  PopupDecorator.Paint(x, y , w, h, p.Text, p.Title);
 	            }
 	        }
-	        catch(Exception ex)
+	        catch
 		   {
-		     		throw;
+		     		//throw;
 		   }
         }
     }
