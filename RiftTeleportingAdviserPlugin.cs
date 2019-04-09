@@ -17,7 +17,7 @@ namespace Turbo.Plugins.James
         private readonly HashSet<ActorSnoEnum> _bannersSnoList = new HashSet<ActorSnoEnum>();
 	   private bool BannerShow { get; set; }
         private string myLocation { get; set; }
-        private string RiftId = "[¿”Ω√]";		// Need to replace it with your own language. Maybe "[temp]"
+        private string RiftId = "[ÏûÑÏãú]";		// Need to replace it with your own language. Maybe "[temp]"
 
         public RiftTeleportingAdviserPlugin()
         {
@@ -82,7 +82,7 @@ namespace Turbo.Plugins.James
 	       foreach (var player in Hud.Game.Players)
 	       {
 	       	cnt++;
-	       	if (player.IsInTown || player.InGreaterRift) continue;
+	       	if (player.IsInTown || player.InGreaterRift || player.IsMe) continue;
 	       	
 	       	PlayerAreaName = player.SnoArea.NameLocalized;	// player.SnoArea.NameEnglish
 	       	if (!PlayerAreaName.Contains(RiftId)) continue;
@@ -159,25 +159,25 @@ namespace Turbo.Plugins.James
 				          	switch (player.HeroClassDefinition.HeroClass)
               				{
                	    				case HeroClass.Monk:
-               	    					Hero = "ºˆµµ";
+               	    					Hero = "ÏàòÎèÑ";
                	    					break;
                	    				case HeroClass.Wizard:
-               	    					Hero = "π˝ªÁ";
+               	    					Hero = "Î≤ïÏÇ¨";
                	    					break;
                	    				case HeroClass.Crusader:
-               	    					Hero = "º∫¿¸";
+               	    					Hero = "ÏÑ±Ï†Ñ";
                	    					break;
                	    				case HeroClass.Barbarian:
-               	    					Hero = "æﬂ∏∏";
+               	    					Hero = "ÏïºÎßå";
                	    					break;
                	    				case HeroClass.DemonHunter:
-               	    					Hero = "æ«ªÁ";
+               	    					Hero = "ÏïÖÏÇ¨";
                	    					break;
                	    				case HeroClass.WitchDoctor:
-               	    					Hero = "∫ŒµŒ";
+               	    					Hero = "Î∂ÄÎëê";
                	    					break;
                	    				case HeroClass.Necromancer:
-               	    					Hero = "∞≠∑…";
+               	    					Hero = "Í∞ïÎ†π";
                	    					break;
                	    			 }
 						*/
