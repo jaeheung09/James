@@ -105,7 +105,7 @@ namespace Turbo.Plugins.James
                      });
 				//Console.Beep(900, 500);
 				ChatFind.PlaySync();
-				Hud.Sound.Speak("채팅에 검열 단어 등장!");		// There's censored chat
+				Hud.Sound.Speak("Words you're looking for!");		// 채팅에 검열 단어 등장
 			}
 	   }
 
