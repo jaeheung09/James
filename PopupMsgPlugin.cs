@@ -58,10 +58,15 @@ namespace Turbo.Plugins.James
         {
              try
              {
-			  foreach (Popup p in Hud.Queue.GetItems<Popup>().Take(4))	//13
+			  foreach (Popup p in Hud.Queue.GetItems<Popup>().Take(6))
             	  {
             	  	w = p.Text.Length * 13;
 				if (w < 65) w = 65;
+				if (w > 1300)
+				{
+					w = 1300;
+					p.Text = p.Text.Substring(100);	// 100 * 13 = 1300
+				}
 				h = 60;
 				x = Hud.Window.Size.Width / 2 - (int)(w / 2);
 				y = 350;
