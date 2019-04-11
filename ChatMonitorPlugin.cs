@@ -124,6 +124,7 @@ namespace Turbo.Plugins.James
 			if(InputBox("Chat Monitor", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
 			{
 			     string sep = ", ";
+			     value = value.Trim();	// delete first/last blanks
 			     savedValue = value;
 			     Match match = Regex.Match(savedValue, @"(?<=\().+(?=\))");		// extract "And" condition words
 			     if (match.Success)
