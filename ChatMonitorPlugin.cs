@@ -86,8 +86,8 @@ namespace Turbo.Plugins.James
 
 				ChatPopupNo++;
 				if (ChatPopupNo > 3) ChatPopupNo = 1;
-				var pTitle = "Censored Chat";		// °Ë¿­µÈ Ã¤ÆÃ ±Û
-				var pDuration = 7000;
+				var pTitle = "Censored Chat";		// ê²€ì—´ëœ ì±„íŒ… ê¸€
+				var pDuration = 10000;		// 10 secs
 				Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
                 	{
 		          		switch(ChatPopupNo)
@@ -105,7 +105,7 @@ namespace Turbo.Plugins.James
                      });
 				//Console.Beep(900, 500);
 				ChatFind.PlaySync();
-				Hud.Sound.Speak("Ã¤ÆÃ¿¡ °Ë¿­ ´Ü¾î µîÀå!");		// There's censored chat
+				Hud.Sound.Speak("ì±„íŒ…ì— ê²€ì—´ ë‹¨ì–´ ë“±ì¥!");		// There's censored chat
 			}
 	   }
 
@@ -138,7 +138,7 @@ namespace Turbo.Plugins.James
 			     {
 					if (ChatWatchListOr[i].Contains("/w"))
 				     {
-				     		ChatWatchListOr[i] = "OnlUserHd";		// whisper id = ±Ó¼Ó¸»
+				     		ChatWatchListOr[i] = "OnlUserHd";		// whisper id = ê·“ì†ë§
 				     }
 				}
 			     InputOK = true;
