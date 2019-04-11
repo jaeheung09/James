@@ -125,6 +125,11 @@ namespace Turbo.Plugins.James
 			{
 			     string sep = ", ";
 			     value = value.Trim();	// delete first/last blanks
+			     if (value == string.Empty)
+			     {
+			     		InputOK = false;
+			     		return;
+			     }
 			     savedValue = value;
 			     Match match = Regex.Match(savedValue, @"(?<=\().+(?=\))");		// extract "And" condition words
 			     if (match.Success)
