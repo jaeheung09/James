@@ -134,10 +134,17 @@ namespace Turbo.Plugins.James
 			     Match match = Regex.Match(savedValue, @"(?<=\().+(?=\))");		// extract "And" condition words
 			     if (match.Success)
 				{
-					ChatWatchListAnd = match.Value.Split(sep.ToCharArray());
-					output = Regex.Replace(value, @"\(.+\) ", "");	// delete And condition for Or processing
-				} else
-					output = value;
+			     ChatWatchListAnd = match.Value.Split(sep.ToCharArray());
+			     for (int i = 0; i < ChatWatchListAnd.Length; i++ )
+			     {
+				if (ChatWatchListAnd[i].Contains("/w"))
+				{
+					ChatWatchListAnd[i] = "OnlUserHd";		// whisper id = 귓속말
+				}
+			     }		
+			     output = Regex.Replace(value, @"\(.+\) ", "");	// delete And condition for Or processing
+			     } else
+				output = value;
 				
 			     ChatWatchListOr = output.Split(sep.ToCharArray());
 			     for (int i = 0; i < ChatWatchListOr.Length; i++ )
