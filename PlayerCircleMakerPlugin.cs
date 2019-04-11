@@ -80,6 +80,7 @@ namespace Turbo.Plugins.James
 			if(InputBox("Drawing Circle", "Yard,R,G,B,SW,Dash(d)", ref value) == DialogResult.OK)
 			{
 			    string sep = ", ";
+			    value = value.Trim();
 			    string[] CircleInfoList = value.Split(sep.ToCharArray());
 			    var cnt = 0;
 			    bool Success;
