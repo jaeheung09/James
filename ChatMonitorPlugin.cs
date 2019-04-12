@@ -89,7 +89,7 @@ namespace Turbo.Plugins.James
 
 				ChatPopupNo++;
 				if (ChatPopupNo > 3) ChatPopupNo = 1;
-				var pTitle = "Monitored Chat";		// °¨½ÃµÇ´Â Ã¤ÆÃ ±Û
+				var pTitle = "Monitored Chat";		// ê°ì‹œë˜ëŠ” ì±„íŒ… ê¸€
 				var pDuration = 10000;		// 10 secs
 				Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
                 	{
@@ -108,7 +108,7 @@ namespace Turbo.Plugins.James
                      });
 				//Console.Beep(900, 500);
 				ChatFind.PlaySync();
-				Hud.Sound.Speak("Ã¤ÆÃÃ¢¿¡ Ã£´Â ´Ü¾î µîÀå!");		// Words show up on the chat box
+				Hud.Sound.Speak(" The words show up on the chat box!");		// ì±„íŒ…ì°½ì— ì°¾ëŠ” ë‹¨ì–´ ë“±ì¥
 			}
 	   }
 
@@ -152,7 +152,7 @@ namespace Turbo.Plugins.James
 			     		{
 						if (ChatWatchListAnd[i].Contains("/w"))
 				     		{
-				     			ChatWatchListAnd[i] = "OnlUserHd";		// whisper id = ±Ó¼Ó¸»
+				     			ChatWatchListAnd[i] = "OnlUserHd";		// whisper id = ê·“ì†ë§
 				     		}
 					}
 					output = Regex.Replace(value, @"\(.+\) ", "");	// delete And condition for Or processing
@@ -164,7 +164,7 @@ namespace Turbo.Plugins.James
 			     {
 					if (ChatWatchListOr[i].Contains("/w"))
 				     {
-				     		ChatWatchListOr[i] = "OnlUserHd";		// whisper id = ±Ó¼Ó¸»
+				     		ChatWatchListOr[i] = "OnlUserHd";		// whisper id = ê·“ì†ë§
 				     }
 				}
 			     InputOK = true;
