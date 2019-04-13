@@ -116,8 +116,8 @@ namespace Turbo.Plugins.James
         {
             if (Hud.Input.IsKeyDown(Keys.NumPad1))
             {
-               var CursorPos = (Hud.Window.Size.Width / 2).ToString("0") + "," + (Hud.Window.Size.Height / 2 - 30).ToString("0");
-	          Process.Start("D:\\Game\\click.exe", CursorPos);
+               //var CursorPos = (Hud.Window.Size.Width / 2).ToString("0") + "," + (Hud.Window.Size.Height / 2 - 30).ToString("0");
+	          //Process.Start("D:\\Game\\click.exe", CursorPos);  // make your own click simulator
 
 			string value = "";
 			string output = "";
