@@ -243,16 +243,6 @@ namespace Turbo.Plugins.James
 			 //Add columns to the ListView:
 			listView.Columns.Add(column1);
 			listView.Columns.Add(column2);
-			// handle dup views
-			try 
-			{
-				for (int i = 0; i <= WebAds.GetUpperBound(0); i++)
-			     {
-					listView.Items.Clear();
-					listView.Items[i].SubItems.Clear();
-				}
-			}
-			catch {}
 			
 			// 조건에 맞는 광고글 내용과 그 사람이 올린 배택을 list로 보여줌
 			for (int i = 0; i <= WebAds.GetUpperBound(0); i++)
