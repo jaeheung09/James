@@ -1,4 +1,4 @@
-// µğ¾Æ3ÀÎº¥ ½ÃÁğÆÄÆ¼¸ğÁı °è½ÃÆÇ¿¡¼­ Ã£°íÀÚ ÇÏ´Â ´Ü¾î°¡ ³ªÅ¸³ª¸é ¾Ë·ÁÁÜ
+// ë””ì•„3ì¸ë²¤ ì‹œì¦ŒíŒŒí‹°ëª¨ì§‘ ê³„ì‹œíŒì—ì„œ ì°¾ê³ ì í•˜ëŠ” ë‹¨ì–´ê°€ ë‚˜íƒ€ë‚˜ë©´ ì•Œë ¤ì¤Œ
 // Alarm on finding the filtered words(or conditions) on a website bulletin board for a want ad of party matching
 
 using System;
@@ -15,10 +15,10 @@ namespace Turbo.Plugins.James
 {
     public class PartyMatchingWebsiteMonitorPlugin : BasePlugin, IKeyEventHandler
     {
-        // ¾Æ·¡ ¼¼ °³ÀÇ url Áß¿¡¼­ º»ÀÎÀÇ ¿øÇÏ´Â °Í¸¸ »ç¿ëÇÏ°í ³ª¸ÓÁö´Â ÄÚ¸àÆ® Ã³¸®ÇÏ½Ã¸é µË´Ï´Ù. (½ÃÁğ ÀÌ¿Ü´Â »ó¼¼ È®ÀÎÀº ¾È ÇØºÃÁö¸¸ ¹®Á¦ ÀÖÀ¸¸é ¾Ë·ÁÁÖ¼¼¿ä.)
-        private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4622?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ÀÎº¥µğ¾Æ3 ½ÃÁğÆÄÆ¼¸ğÁı[¸ğÁıÁß]
-        //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4738?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ½ºÅÙÆÄÆ¼¸ğÁı
-	   //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4623";	//ÇÏµåÄÚ¾î ÆÄÆ¼ ¸ğÁı
+        // ì•„ë˜ ì„¸ ê°œì˜ url ì¤‘ì—ì„œ ë³¸ì¸ì˜ ì›í•˜ëŠ” ê²ƒë§Œ ì‚¬ìš©í•˜ê³  ë‚˜ë¨¸ì§€ëŠ” ì½”ë©˜íŠ¸ ì²˜ë¦¬í•˜ì‹œë©´ ë©ë‹ˆë‹¤. (ì‹œì¦Œ ì´ì™¸ëŠ” ìƒì„¸ í™•ì¸ì€ ì•ˆ í•´ë´¤ì§€ë§Œ ë¬¸ì œ ìˆìœ¼ë©´ ì•Œë ¤ì£¼ì„¸ìš”.)
+        private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4622?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ì¸ë²¤ë””ì•„3 ì‹œì¦ŒíŒŒí‹°ëª¨ì§‘[ëª¨ì§‘ì¤‘]
+        //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4738?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ìŠ¤í…íŒŒí‹°ëª¨ì§‘
+	   //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4623";	//í•˜ë“œì½”ì–´ íŒŒí‹° ëª¨ì§‘
 	   private string[] ChatWatchListAnd = new string[5];
 	   private string[] ChatWatchListOr = new string[5];
 	   private string[] WebBBList = new string[3];
@@ -29,7 +29,8 @@ namespace Turbo.Plugins.James
 	   private SoundPlayer ChatFind = new SoundPlayer();
 	   private WebClient webClient = new WebClient();
 	   private static System.Timers.Timer WebBBSearchTimer;
-	   private int WebBBearchInterval = 5000;		//7ÃÊ¸¶´Ù ÀÎº¥ °Ë»ö
+	   private static System.Timers.Timer ClickTimer;
+	   private int WebBBearchInterval = 5000;		//7ì´ˆë§ˆë‹¤ ì¸ë²¤ ê²€ìƒ‰
 
         public PartyMatchingWebsiteMonitorPlugin()
         {
@@ -58,7 +59,7 @@ namespace Turbo.Plugins.James
 			string WebBBStr = webClient.DownloadString(WebsiteUrl);
 			string filteredStr = string.Empty;
 			
-			Match match = Regex.Match(WebBBStr, @"(?<='bbsNo'>).+(?=</TD><)");	// ¸ğÁı ³»¿ëÀÌ Ãß°¡ µÇ¾ú´ÂÁö È®ÀÎ
+			Match match = Regex.Match(WebBBStr, @"(?<='bbsNo'>).+(?=</TD><)");	// ëª¨ì§‘ ë‚´ìš©ì´ ì¶”ê°€ ë˜ì—ˆëŠ”ì§€ í™•ì¸
 			if (match.Success)
 			{
 				if (match.Value == oldValue)
@@ -126,9 +127,10 @@ namespace Turbo.Plugins.James
 				{
 					ChatPopupNo++;
 					if (ChatPopupNo > 3) ChatPopupNo = 1;
-					var pTitle = "ÀÎº¥ ½ÃÁğÆÄÆ¼ ¸ğÁı";
+					var pTitle = "ì¸ë²¤ ì‹œì¦ŒíŒŒí‹° ëª¨ì§‘";
 					var pDuration = 15000;		// 15 secs
-					var tmp = chatLine.Trim();
+					//var tmp = chatLine.Trim();
+					var tmp = Regex.Replace(chatLine, @"\.{1,}$", "").Trim();
 					Hud.RunOnPlugin<PopupMsgPlugin>(plugin =>
 	                	{
 			          		switch(ChatPopupNo)
@@ -146,13 +148,19 @@ namespace Turbo.Plugins.James
 	                     });
 					ChatFind.PlaySync();
 					if (Hud.Sound.LastSpeak.TimerTest(3000))
-						Hud.Sound.Speak("ÀÎº¥ ½ÃÁğ ÆÄÆ¼ ¸ğÁı È®ÀÎ!");		// Words show up on the chat box
+						Hud.Sound.Speak("ì¸ë²¤ ì‹œì¦Œ íŒŒí‹° ëª¨ì§‘ í™•ì¸!");		// Words show up on the chat box
 						
 					found = false;
 				}
 			}
 	   }
 
+	   public void DoClick(Object source, System.Timers.ElapsedEventArgs e)
+	   {
+               Cursor.Position = new Point(Hud.Window.Size.Width / 2, Hud.Window.Size.Height / 2 - 30);
+	          Process.Start("D:\\Game\\click.exe");
+	   }
+	   
         public void OnKeyEvent(IKeyEvent keyEvent)
         {
             if (Hud.Input.IsKeyDown(Keys.NumPad2))
@@ -169,13 +177,19 @@ namespace Turbo.Plugins.James
 			}
 			if (InputOK)
 				value = savedValue;
+				
+			ClickTimer = new System.Timers.Timer();
+			ClickTimer.Interval = 50;
+			ClickTimer.Elapsed += DoClick;
+			ClickTimer.AutoReset = false;
+			ClickTimer.Enabled = true;				
 
                //var CursorPos = (Hud.Window.Size.Width / 2).ToString("0") + "," + (Hud.Window.Size.Height / 2 - 30).ToString("0");
                //Process.Start("D:\\Game\\click.exe", CursorPos);
-               Cursor.Position = new Point(Hud.Window.Size.Width / 2, Hud.Window.Size.Height / 2 - 30);
-	          Process.Start("D:\\Game\\click.exe");
+               //Cursor.Position = new Point(Hud.Window.Size.Width / 2, Hud.Window.Size.Height / 2 - 30);
+	          //Process.Start("D:\\Game\\click.exe");
 
-			if(InputBox("ÀÎº¥ ÆÄÆ¼ ¸ğÁı °Ë»ö¾î", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
+			if(InputBox("ì¸ë²¤ íŒŒí‹° ëª¨ì§‘ ê²€ìƒ‰ì–´", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
 			{
 				Console.Beep(200, 120);
 			     string sep = ", ";
