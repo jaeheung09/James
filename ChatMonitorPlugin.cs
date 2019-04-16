@@ -20,6 +20,7 @@ namespace Turbo.Plugins.James
 	   private string savedValue;
 	   private int ChatPopupNo;
 	   private SoundPlayer ChatFind = new SoundPlayer();
+	   private static System.Timers.Timer ClickTimer;
 	   	   	   
         public ChatMonitorPlugin()
         {
@@ -112,13 +113,16 @@ namespace Turbo.Plugins.James
 			}
 	   }
 
+	   public void DoClick(Object source, System.Timers.ElapsedEventArgs e)
+	   {
+               Cursor.Position = new Point(Hud.Window.Size.Width / 2, Hud.Window.Size.Height / 2 - 30);
+	          Process.Start("D:\\Game\\click.exe");
+	   }
+	   
         public void OnKeyEvent(IKeyEvent keyEvent)
         {
             if (Hud.Input.IsKeyDown(Keys.NumPad1))
             {
-               //var CursorPos = (Hud.Window.Size.Width / 2).ToString("0") + "," + (Hud.Window.Size.Height / 2 - 30).ToString("0");
-	          //Process.Start("D:\\Game\\click.exe", CursorPos);  // make your own click simulator
-
 			string value = "";
 			string output = "";
 			for (int i = 0; i < ChatWatchListOr.Length; i++ )
@@ -132,6 +136,11 @@ namespace Turbo.Plugins.James
 			if (InputOK)
 				value = savedValue;
 
+			ClickTimer = new System.Timers.Timer();
+			ClickTimer.Interval = 50;
+			ClickTimer.Elapsed += DoClick;
+			ClickTimer.AutoReset = false;
+			ClickTimer.Enabled = true;	
 			
 			if(InputBox("Chat Monitor", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
 			{
