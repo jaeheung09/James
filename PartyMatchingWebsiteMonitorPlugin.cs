@@ -1,4 +1,4 @@
-// µğ¾Æ3ÀÎº¥ ½ÃÁğÆÄÆ¼¸ğÁı °è½ÃÆÇ¿¡¼­ Ã£°íÀÚ ÇÏ´Â ´Ü¾î°¡ ³ªÅ¸³ª¸é ÇØ´ç ±¤°í ³»¿ëÀ» ¾Ë·ÁÁÖ°í Numpad4¸¦ ´©¸£¸é ±¤°í ³»¿ë°ú ¹èÆ²ÅÂ±×¸¦ list ÇüÅÂ·Î º¸¿©ÁÖ¸ç ¼±ÅÃÇÏ¸é ÇØ´ç ¹èÅÃÀ» Å¬¸³º¸µå¿¡ ÀÚµ¿ º¹»çÇÏ¿© Ä£Ãß½Ã ctrl_v¸¸ ´©¸£¸é ¹èÅÃÀÌ ÀÚµ¿ º¹»çµÊ
+// ë””ì•„3ì¸ë²¤ ì‹œì¦ŒíŒŒí‹°ëª¨ì§‘ ê³„ì‹œíŒì—ì„œ ì°¾ê³ ì í•˜ëŠ” ë‹¨ì–´ê°€ ë‚˜íƒ€ë‚˜ë©´ í•´ë‹¹ ê´‘ê³  ë‚´ìš©ì„ ì•Œë ¤ì£¼ê³  Numpad4ë¥¼ ëˆ„ë¥´ë©´ ê´‘ê³  ë‚´ìš©ê³¼ ë°°í‹€íƒœê·¸ë¥¼ list í˜•íƒœë¡œ ë³´ì—¬ì£¼ë©° ì„ íƒí•˜ë©´ í•´ë‹¹ ë°°íƒì„ í´ë¦½ë³´ë“œì— ìë™ ë³µì‚¬í•˜ì—¬ ì¹œì¶”ì‹œ ctrl_vë§Œ ëˆ„ë¥´ë©´ ë°°íƒì´ ìë™ ë³µì‚¬ë¨
 // Alarm on finding the filtered words(or conditions) on a website bulletin board for a want ad of party matching and auto clipboard copy of the BattleTag so that "Add friend" can be done easily
 
 using System;
@@ -17,16 +17,16 @@ namespace Turbo.Plugins.James
 {
     public class PartyMatchingWebsiteMonitorPlugin : BasePlugin, IKeyEventHandler
     {
-        // ¾Æ·¡ ¼¼ °³ÀÇ url Áß¿¡¼­ º»ÀÎÀÇ ¿øÇÏ´Â °Í¸¸ »ç¿ëÇÏ°í ³ª¸ÓÁö´Â ÄÚ¸àÆ® Ã³¸®ÇÏ½Ã¸é µË´Ï´Ù. (½ÃÁğ ÀÌ¿Ü´Â »ó¼¼ È®ÀÎÀº ¾È ÇØºÃÁö¸¸ ¹®Á¦ ÀÖÀ¸¸é ¾Ë·ÁÁÖ¼¼¿ä.)
-        private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4622?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ÀÎº¥µğ¾Æ3 ½ÃÁğÆÄÆ¼¸ğÁı[¸ğÁıÁß]
-        //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4738?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ½ºÅÙÆÄÆ¼¸ğÁı
-	   //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4623";	//ÇÏµåÄÚ¾î ÆÄÆ¼ ¸ğÁı
+        // ì•„ë˜ ì„¸ ê°œì˜ url ì¤‘ì—ì„œ ë³¸ì¸ì˜ ì›í•˜ëŠ” ê²ƒë§Œ ì‚¬ìš©í•˜ê³  ë‚˜ë¨¸ì§€ëŠ” ì½”ë©˜íŠ¸ ì²˜ë¦¬í•˜ì‹œë©´ ë©ë‹ˆë‹¤. (ì‹œì¦Œ ì´ì™¸ëŠ” ìƒì„¸ í™•ì¸ì€ ì•ˆ í•´ë´¤ì§€ë§Œ ë¬¸ì œ ìˆìœ¼ë©´ ì•Œë ¤ì£¼ì„¸ìš”.)
+        private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4622?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ì¸ë²¤ë””ì•„3 ì‹œì¦ŒíŒŒí‹°ëª¨ì§‘[ëª¨ì§‘ì¤‘]
+        //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4738?category=%EB%AA%A8%EC%A7%91%EC%A4%91"; // ìŠ¤í…íŒŒí‹°ëª¨ì§‘
+	   //private string WebsiteUrl = "http://www.inven.co.kr/board/diablo3/4623";	//í•˜ë“œì½”ì–´ íŒŒí‹° ëª¨ì§‘
 	   private string[] ChatWatchListAnd = new string[5];
 	   private string[] ChatWatchListOr = new string[5];
-	   private string[] WebBBList = new string[3];		// ÀÎº¥ ¸ğÁı ±¤°í ³»¿ë
-	   private string[] WebDate = new string[3];		// ±¤°í Æ÷½ºÆÃ ½Ã°£
-	   private string[] WebHREF = new string[3];		// ±¤°íÀÚ ¹èÅÃÀÌ µé¾îÀÖ´Â À¥ÆäÀÌÁö ÁÖ¼Ò
-	   private string[,] WebAds = new string[3, 3];		// (±¤°í³»¿ë, ¹èÆ²ÅÂ±×) * 3°³ - 3°³ ÀÌ»óÀº Çö½ÇÀûÀ¸·Î »ç¿ëµÇÁö ¾ÊÀ½
+	   private string[] WebBBList = new string[3];		// ì¸ë²¤ ëª¨ì§‘ ê´‘ê³  ë‚´ìš©
+	   private string[] WebDate = new string[3];		// ê´‘ê³  í¬ìŠ¤íŒ… ì‹œê°„
+	   private string[] WebHREF = new string[3];		// ê´‘ê³ ì ë°°íƒì´ ë“¤ì–´ìˆëŠ” ì›¹í˜ì´ì§€ ì£¼ì†Œ
+	   private string[,] WebAds = new string[3, 3];		// (ê´‘ê³ ë‚´ìš©, ë°°í‹€íƒœê·¸) * 3ê°œ - 3ê°œ ì´ìƒì€ í˜„ì‹¤ì ìœ¼ë¡œ ì‚¬ìš©ë˜ì§€ ì•ŠìŒ
 	   private bool InputOK;
 	   private string savedValue;
 	   private string oldValue;
@@ -35,7 +35,7 @@ namespace Turbo.Plugins.James
 	   private WebClient webClient = new WebClient();
 	   private static System.Timers.Timer WebBBSearchTimer;
 	   private static System.Timers.Timer ClickTimer;
-	   private int WebBBSearchInterval = 7000;		//5ÃÊ¸¶´Ù ÀÎº¥ °Ë»ö
+	   private int WebBBSearchInterval = 7000;		//5ì´ˆë§ˆë‹¤ ì¸ë²¤ ê²€ìƒ‰
 	   private string BaTag;
 	   private bool InputChanged;
 
@@ -75,12 +75,12 @@ namespace Turbo.Plugins.James
 			string WebBBStr = webClient.DownloadString(WebsiteUrl);
 			string filteredStr = string.Empty;
 
-			Match match = Regex.Match(WebBBStr, @"(?<='bbsNo'>).+(?=</TD><)");	// ¸ğÁı ³»¿ëÀÌ Ãß°¡ µÇ¾ú´ÂÁö ÆäÀÌÁö °¡Àå Ã¹ bbsNo·Î È®ÀÎ
+			Match match = Regex.Match(WebBBStr, @"(?<='bbsNo'>).+(?=</TD><)");	// ëª¨ì§‘ ë‚´ìš©ì´ ì¶”ê°€ ë˜ì—ˆëŠ”ì§€ í˜ì´ì§€ ê°€ì¥ ì²« bbsNoë¡œ í™•ì¸
 			if (match.Success)
 			{
 				if (match.Value == oldValue)
 				{
-					if (!InputChanged)		// °è½ÃÆÇ ³»¿ëÀÌ ¾È ¹Ù²¼¾îµµ °Ë»ö ´Ü¾î°¡ ¹Ù²î¸é °è½ÃÆÇ ´Ù½Ã °Ë»ö
+					if (!InputChanged)		// ê³„ì‹œíŒ ë‚´ìš©ì´ ì•ˆ ë°”ê¼ˆì–´ë„ ê²€ìƒ‰ ë‹¨ì–´ê°€ ë°”ë€Œë©´ ê³„ì‹œíŒ ë‹¤ì‹œ ê²€ìƒ‰
 						return;
 					else
 						InputChanged = false;
@@ -92,7 +92,7 @@ namespace Turbo.Plugins.James
 				return;		//exception
 			}
 
-			// ¸ğÁı ±Û ³»¿ë 3°³ ÃßÃâ : ÇöÀç´Â 3°³. ±× ÀÌ»óÀº ±¤°í ½Ã°£ÀÌ Áö³ª¼­ º° ÀÇ¹Ì°¡ ¾øÀ½
+			// ëª¨ì§‘ ê¸€ ë‚´ìš© 3ê°œ ì¶”ì¶œ : í˜„ì¬ëŠ” 3ê°œ. ê·¸ ì´ìƒì€ ê´‘ê³  ì‹œê°„ì´ ì§€ë‚˜ì„œ ë³„ ì˜ë¯¸ê°€ ì—†ìŒ
 			for (int i = 0; i <  WebBBList.GetLength(0); i++)
 			{
 				if (i == 0)
@@ -106,7 +106,7 @@ namespace Turbo.Plugins.James
 					break;
 			}
 
-			// ¸ğÁı ±Û Date ÃßÃâ
+			// ëª¨ì§‘ ê¸€ Date ì¶”ì¶œ
 			for (int i = 0; i <  WebDate.GetLength(0); i++)
 			{
 				if (i == 0)
@@ -121,7 +121,7 @@ namespace Turbo.Plugins.James
 					break;
 			}
 
-			// ¸ğÁı ±Û ¿¬°á HREF(À¥ ÁÖ¼Ò) ÃßÃâ (Á¶°Ç¿¡ ¸Â´Â ±¤°í±ÛÀÇ ¹èÅÃÀÌ µé¾îÀÖ´Â ÇÏÀ§ À¥ ÆäÀÌÁö ÁÖ¼Ò)
+			// ëª¨ì§‘ ê¸€ ì—°ê²° HREF(ì›¹ ì£¼ì†Œ) ì¶”ì¶œ (ì¡°ê±´ì— ë§ëŠ” ê´‘ê³ ê¸€ì˜ ë°°íƒì´ ë“¤ì–´ìˆëŠ” í•˜ìœ„ ì›¹ í˜ì´ì§€ ì£¼ì†Œ)
 			for (int i = 0; i <  WebBBList.GetLength(0); i++)
 			{
 				if (i == 0)
@@ -140,7 +140,7 @@ namespace Turbo.Plugins.James
 
 			bool found = false;
 			var cnt = 0;
-			// ÀÎº¥ ¸ğÁı ±¤°í±ÛÀÌ À¯Àú°¡ ÀÔ·ÂÇÑ °Ë»ö Á¶°Ç¿¡ ºÎÇÕÇÑÁö È®ÀÎÇÏ´Â ÀÛ¾÷
+			// ì¸ë²¤ ëª¨ì§‘ ê´‘ê³ ê¸€ì´ ìœ ì €ê°€ ì…ë ¥í•œ ê²€ìƒ‰ ì¡°ê±´ì— ë¶€í•©í•œì§€ í™•ì¸í•˜ëŠ” ì‘ì—…
 			foreach (string chatLine in WebBBList)
 			{
 				if (ChatWatchListAnd[0] != string.Empty)
@@ -179,7 +179,7 @@ namespace Turbo.Plugins.James
 				{
 					ChatPopupNo++;
 					if (ChatPopupNo > 3) ChatPopupNo = 1;
-					var pTitle = "ÀÎº¥ ½ÃÁğÆÄÆ¼ ¸ğÁı";
+					var pTitle = "ì¸ë²¤ ì‹œì¦ŒíŒŒí‹° ëª¨ì§‘";
 					var pDuration = WebBBSearchInterval;
 					var tmp = chatLine.Trim() + "("+WebDate[cnt]+")";
 					WebAds[cnt, 0] = tmp;
@@ -202,7 +202,7 @@ namespace Turbo.Plugins.James
 	                     });
 					ChatFind.PlaySync();
 					if (Hud.Sound.LastSpeak.TimerTest(3000))
-						Hud.Sound.Speak("ÀÎº¥ ½ÃÁğ ÆÄÆ¼ ¸ğÁı È®ÀÎ!");		// Words show up on the chat box
+						Hud.Sound.Speak("ì¸ë²¤ ì‹œì¦Œ íŒŒí‹° ëª¨ì§‘ í™•ì¸!");		// Words show up on the chat box
 
 					found = false;
 				}
@@ -210,28 +210,28 @@ namespace Turbo.Plugins.James
 			}
 	     }
 
-		// ÀÎº¥ ½ÃÁğÆÄÆ¼Ã£±â °è½ÃÆÇ ±¤°í±ÛÀÌ Á¶°Ç¿¡ ¸ÂÀ¸¸é ½ÇÁ¦ ¿Ã¸° »ç¶÷ÀÇ ¹èÅÃÀÌ µé¾îÀÖ´Â ÇÏÀ§ À¥ÆäÀÌÁö·Î µé¾î°¡¼­ ¹èÅÃÀ» °¡Á®¿È
-		public void GetBattleTag(int index)
+		// ì¸ë²¤ ì‹œì¦ŒíŒŒí‹°ì°¾ê¸° ê³„ì‹œíŒ ê´‘ê³ ê¸€ì´ ì¡°ê±´ì— ë§ìœ¼ë©´ ì‹¤ì œ ì˜¬ë¦° ì‚¬ëŒì˜ ë°°íƒì´ ë“¤ì–´ìˆëŠ” í•˜ìœ„ ì›¹í˜ì´ì§€ë¡œ ë“¤ì–´ê°€ì„œ ë°°íƒì„ ê°€ì ¸ì˜´
+		public void GetBattleTag(int Aindex)
 		{
-			string WebBBStr = webClient.DownloadString(WebHREF[index]);
-			Match match = Regex.Match(WebBBStr, @"(?<=""description"" content="").+\d{4,}");	// BattleTag ÃßÃâ
+			string WebBBStr = webClient.DownloadString(WebHREF[Aindex]);
+			Match match = Regex.Match(WebBBStr, @"(?<=""description"" content="").+\d{4,}");	// BattleTag ì¶”ì¶œ
 			if (match.Success)
 			{
 				string output = Regex.Replace(match.Value, @" ", string.Empty).Trim();
-				WebAds[index, 1] = SubstringReverse(output, 1, 20);
-				//WebAds[index, 1] = Regex.Replace(match.Value, @" ", string.Empty).Trim();
+				WebAds[Aindex, 1] = SubstringReverse(output, 1, 20);
+				//WebAds[Aindex, 1] = Regex.Replace(match.Value, @" ", string.Empty).Trim();
 			} else
 			{
 				Console.Beep(1000, 300);
 				return;		//exception
 			}
-		}
+		}		
 
 		public static string SubstringReverse(string str, int reverseIndex, int length) {
 		    return string.Join("", str.Reverse().Skip(reverseIndex - 1).Take(length).Reverse());
 		}
 		
-		// ÀÎº¥ ¸ğÁı±¤°í °Ë»ö °á°ú º¸¿©ÁÖ´Â ListView Æû ¹× ³»¿ë ÀÛ¼º
+		// ì¸ë²¤ ëª¨ì§‘ê´‘ê³  ê²€ìƒ‰ ê²°ê³¼ ë³´ì—¬ì£¼ëŠ” ListView í¼ ë° ë‚´ìš© ì‘ì„±
 		public DialogResult listView_Doit(string title, string content)
 		{
 			var ForceReturn = true;
@@ -245,7 +245,7 @@ namespace Turbo.Plugins.James
 			}
 			if (ForceReturn)
 			{
-				Hud.Sound.Speak("º¸¿©ÁÙ ±¤°í ³»¿ëÀÌ ¾ø½À´Ï´Ù!");
+				Hud.Sound.Speak("ë³´ì—¬ì¤„ ê´‘ê³  ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤!");
 				Console.Beep(500, 250);
 				return DialogResult.Cancel;
 			}
@@ -276,7 +276,7 @@ namespace Turbo.Plugins.James
 		     buttonOk.SetBounds(20, 155, 200, 20);
 		     buttonCancel.SetBounds(270, 155, 200, 20);
 
-			listView.Name = "ÀÎº¥ ÆÄÆ¼ ¸ğÁı±Û";
+			listView.Name = "ì¸ë²¤ íŒŒí‹° ëª¨ì§‘ê¸€";
 			// Select the item and subitems when selection is made.
 			listView.FullRowSelect = true;
 			listView.BackColor = Color.Black;
@@ -288,17 +288,17 @@ namespace Turbo.Plugins.James
 			listView.BeginUpdate();
 
 			 //Add columns to the ListView:
-			listView.Columns.Add(">>> ½ÃÁğ ÆÄÆ¼ ¸ğÁı ±¤°í ³»¿ë [¸ğÁıÁß] <<<", 300, HorizontalAlignment.Center);
+			listView.Columns.Add(">>> ì‹œì¦Œ íŒŒí‹° ëª¨ì§‘ ê´‘ê³  ë‚´ìš© [ëª¨ì§‘ì¤‘] <<<", 300, HorizontalAlignment.Center);
 			listView.Columns.Add(">>> BattleTag <<<", 150, HorizontalAlignment.Center);
 			listView.OwnerDraw = false;
-			// º¸¿©ÁÙ ÀÎº¥ ¸ğÁı±¤°í ³»¿ë Á¤·Ä ¹× Áßº¹ Á¦°Å
+			// ë³´ì—¬ì¤„ ì¸ë²¤ ëª¨ì§‘ê´‘ê³  ë‚´ìš© ì •ë ¬ ë° ì¤‘ë³µ ì œê±°
 			int loopcnt = WebAds.GetLength(0)-1;
 			for (int i = 0; i < WebAds.GetLength(0)-1; i++)
 	          {
 		          for (int j = 0; j < loopcnt; j++)
 		          {
 		          		int c = string.Compare(WebAds[j, 0], WebAds[j+1, 0]);
-		               if (c == -1)	// ÀüÀÚ°¡ ÈÄÀÚº¸´Ù ÀÛÀ¸¸é
+		               if (c == -1)	// ì „ìê°€ í›„ìë³´ë‹¤ ì‘ìœ¼ë©´
 		               {
 						string temp1 = WebAds[j, 0];
 						string temp2 = WebAds[j, 1];
@@ -319,8 +319,8 @@ namespace Turbo.Plugins.James
 		          loopcnt--;
 		          if (loopcnt == 0) break;
 		      }
-			// Á¶°Ç¿¡ ¸Â´Â ±¤°í±Û ³»¿ë°ú ±× »ç¶÷ÀÌ ¿Ã¸° ¹èÅÃÀ» listView¿¡ item Ãß°¡
-			for (int i = 0; i <= WebAds.GetUpperBound(0); i++)	// WebAds.GetLength(0)¿Í °°À½
+			// ì¡°ê±´ì— ë§ëŠ” ê´‘ê³ ê¸€ ë‚´ìš©ê³¼ ê·¸ ì‚¬ëŒì´ ì˜¬ë¦° ë°°íƒì„ listViewì— item ì¶”ê°€
+			for (int i = 0; i <= WebAds.GetUpperBound(0); i++)	// WebAds.GetLength(0)ì™€ ê°™ìŒ
 		     {
 				if (WebAds[i, 0] != string.Empty)
 				{
@@ -357,11 +357,11 @@ namespace Turbo.Plugins.James
 
          public void OnKeyEvent(IKeyEvent keyEvent)
          {
-            if (Hud.Input.IsKeyDown(Keys.NumPad2))	// ÀÎº¥ ¸ğÁı ±¤°í °Ë»ö Á¶°Ç ÀÔ·Â Ã¢ È£Ãâ
+            if (Hud.Input.IsKeyDown(Keys.NumPad2))	// ì¸ë²¤ ëª¨ì§‘ ê´‘ê³  ê²€ìƒ‰ ì¡°ê±´ ì…ë ¥ ì°½ í˜¸ì¶œ
             {
 			string value = string.Empty;
 			string output = string.Empty;
-			// And ¹× Or °Ë»ö Á¶°Ç º¯¼ö ÃÊ±âÈ­
+			// And ë° Or ê²€ìƒ‰ ì¡°ê±´ ë³€ìˆ˜ ì´ˆê¸°í™”
 			for (int i = 0; i < ChatWatchListOr.Length; i++ )
 			{
 				ChatWatchListOr[i] = string.Empty;
@@ -370,17 +370,17 @@ namespace Turbo.Plugins.James
 			{
 				ChatWatchListAnd[i] = string.Empty;
 			}
-			if (InputOK)	// ÀÌ Àü¿¡ °Ë»ö ÀÔ·ÂÀ» ÇÑ »óÅÂ¶ó¸é
+			if (InputOK)	// ì´ ì „ì— ê²€ìƒ‰ ì…ë ¥ì„ í•œ ìƒíƒœë¼ë©´
 				value = savedValue;
 
-			// ÀÏÁ¤ ½Ã°£ ÈÄ Æû ÀÚµ¿ È°¼ºÈ­
+			// ì¼ì • ì‹œê°„ í›„ í¼ ìë™ í™œì„±í™”
 			ClickTimer = new System.Timers.Timer();
 			ClickTimer.Interval = 50;
 			ClickTimer.Elapsed += DoClick;
 			ClickTimer.AutoReset = false;
 			ClickTimer.Enabled = true;
 
-			if(InputBox("ÀÎº¥ ÆÄÆ¼ ¸ğÁı °Ë»ö¾î", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
+			if(InputBox("ì¸ë²¤ íŒŒí‹° ëª¨ì§‘ ê²€ìƒ‰ì–´", "Or : comma/space, And : ( Or )", ref value) == DialogResult.OK)
 			{
 				Console.Beep(200, 120);
 			     string sep = ", ";
@@ -397,7 +397,7 @@ namespace Turbo.Plugins.James
 			     } else if (savedValue != value)
 			     {
 			     		InputChanged = true;
-					for (int i = 0; i < WebAds.GetLength(0); i++) // ÀÔ·Â ³»¿ëÀÌ ¹Ù²î¸é ÀÎº¥ ¸ğÁı±¤°í ³»¿ë ¹× ¹èÅÃ Array ÃÊ±âÈ­
+					for (int i = 0; i < WebAds.GetLength(0); i++) // ì…ë ¥ ë‚´ìš©ì´ ë°”ë€Œë©´ ì¸ë²¤ ëª¨ì§‘ê´‘ê³  ë‚´ìš© ë° ë°°íƒ Array ì´ˆê¸°í™”
 		         		{
 			        		WebAds[i, 0] = string.Empty;
 		                	WebAds[i, 1] = string.Empty;
@@ -416,7 +416,7 @@ namespace Turbo.Plugins.James
 			     ChatWatchListOr = output.Split(sep.ToCharArray());
 			     InputOK = true;
 
-				// ÀÎº¥ ÆÄÆ¼¸ğÁı±Û ÆäÀÌÁö¸¦ ÀÏÁ¤ ÁÖ±â·Î °è¼Ó ¸ğ´ÏÅÍÇÔ
+				// ì¸ë²¤ íŒŒí‹°ëª¨ì§‘ê¸€ í˜ì´ì§€ë¥¼ ì¼ì • ì£¼ê¸°ë¡œ ê³„ì† ëª¨ë‹ˆí„°í•¨
 				WebBBSearchTimer = new System.Timers.Timer();
 				WebBBSearchTimer.Interval = 1000;		// first in 1 sec and then search Web bulletin boards every WebBBSearchInterval
 				WebBBSearchTimer.Elapsed += WebBBListSearch;
@@ -424,7 +424,7 @@ namespace Turbo.Plugins.James
 				WebBBSearchTimer.Enabled = true;
 			 }
              }
-            if (Hud.Input.IsKeyDown(Keys.NumPad4))	// ÀÎº¥ ±¤°í ³»¿ë ¹× ¹èÅÃ º¸¿©ÁÖ´Â ListView È£Ãâ
+            if (Hud.Input.IsKeyDown(Keys.NumPad4))	// ì¸ë²¤ ê´‘ê³  ë‚´ìš© ë° ë°°íƒ ë³´ì—¬ì£¼ëŠ” ListView í˜¸ì¶œ
             {
             	ClickTimer = new System.Timers.Timer();
 			ClickTimer.Interval = 50;
@@ -432,15 +432,15 @@ namespace Turbo.Plugins.James
 			ClickTimer.AutoReset = false;
 			ClickTimer.Enabled = true;
 
-            	if(listView_Doit("ÀÎº¥ ½ÃÁğÆÄÆ¼ ¸ğÁı", "¼±ÅÃÇÏ¸é ±¤°íÀÚ ¹èÆ²ÅÂ±× Å¬¸³º¸µå¿¡ ÀÚµ¿ º¹»ç(Ä£Ãß ¶§ ctrl_v)") == DialogResult.OK)
+            	if(listView_Doit("ì¸ë²¤ ì‹œì¦ŒíŒŒí‹° ëª¨ì§‘", "ì„ íƒí•˜ë©´ ê´‘ê³ ì ë°°í‹€íƒœê·¸ í´ë¦½ë³´ë“œì— ìë™ ë³µì‚¬(ì¹œì¶” ë•Œ ctrl_v)") == DialogResult.OK)
             	{
             		Clipboard.SetText(BaTag);
-            		Hud.Sound.Speak("ÇØ´ç ¹èÆ²Å×±×°¡ Å¬¸³º¸µå¿¡ º¹»çµÇ¾ú½À´Ï´Ù!");
+            		Hud.Sound.Speak("í•´ë‹¹ ë°°í‹€í…Œê·¸ê°€ í´ë¦½ë³´ë“œì— ë³µì‚¬ë˜ì—ˆìŠµë‹ˆë‹¤!");
             	}
             }
           }
 
-		// ÀÎº¥ ¸ğÁı±¤°í °Ë»ö Á¶°Ç ÀÔ·Â Æû
+		// ì¸ë²¤ ëª¨ì§‘ê´‘ê³  ê²€ìƒ‰ ì¡°ê±´ ì…ë ¥ í¼
 		public DialogResult InputBox(string title, string content, ref string value)
 		{
 		    Form form = new Form();
