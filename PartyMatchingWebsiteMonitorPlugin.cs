@@ -482,16 +482,13 @@ namespace Turbo.Plugins.James
           		bool exist = false;
           		for (int i = 0; i < 5; i++)		// set limit to loop count(5) to avoid an exception just in case
           		{
+				Hud.Render.GetUiElement(UiName).Refresh();
 	          		if (Hud.Render.GetUiElement(UiName).Visible);
 	          		{
 	            			exist = true;
 	            			break;
-	            		} else
-				{
-					Hud.Render.GetUiElement(UiName).Refresh();
-				}					
-				
-	            		Thread.Sleep(200);	
+	            		}
+				Thread.Sleep(200);	
 	      		}
 			return exist;
 		}
