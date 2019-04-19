@@ -458,9 +458,10 @@ namespace Turbo.Plugins.James
             		SendKeys.SendWait("+(i)");	// 친구 창 단축키
 				if (WaitUiScreen("Root.NormalLayer.BattleNetFriendsList_main.LayoutRoot.OverlayContainer.FriendsListContent"))		// 친구 창이 떴으면
 				{
-	            		Cursor.Position = new Point(1560, 900);	//친구 창 화면에서 "친구 추구" 버튼의 위치
+	            			Cursor.Position = new Point(1560, 900);	//친구 창 화면에서 "친구 추구" 버튼의 위치
 		          		Process.Start("D:\\Game\\click.exe");	// Just click the button
 		          		Thread.Sleep(500);
+					Cursor.Position = new Point(950, 520);	// 배택 입력 필드
 		          		if (WaitUiScreen("Root.TopLayer.BattleNetSocialDialogs_main.LayoutRoot.DialogSendRealIdRequest"))		// 친구 추가 창이 떴으면
 		          		{
 		          			SendKeys.SendWait("^(v)");				// 클립보드 내용을 빈칸에 복사해 넣어라
