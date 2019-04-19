@@ -469,9 +469,9 @@ namespace Turbo.Plugins.James
 	            	}
 	            	
 	            	if (uiFlag)
-	            		Hud.Sound.Speak("친구 추가 요청을 보내세요!");		// Enter to send "friend request"
+	            		Hud.Sound.Speak("요청 버튼을 누르세요!");		// Enter to send "friend request"
 	            	else
-	            		Hud.Sound.Speak("친구 화면이 열리지 않습니다!");	// Can't open friend screen
+	            		Hud.Sound.Speak("친구 추가 화면이 열리지 않습니다!");	// Can't open friend screen
             	}
             }
           }
