@@ -455,7 +455,7 @@ namespace Turbo.Plugins.James
             		Clipboard.SetText(BaTag);
             		// 자동으로 친구 추가 페이지로 이동 및 배틀 태그 자동 복사해 넣기
             		SendKeys.SendWait("+(i)");	// 친구 창 단축키
-			Thread.Sleep(800);
+			Thread.Sleep(1000);
             		Cursor.Position = new Point(1560, 900);	//친구 창 화면에서 "친구 추구" 버튼의 위치
 	          	Process.Start("D:\\Game\\click.exe");	// Just click the button
 	          	Thread.Sleep(500);						// 0.7초 쉬어라
