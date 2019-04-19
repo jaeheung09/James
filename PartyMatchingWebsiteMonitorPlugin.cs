@@ -484,11 +484,15 @@ namespace Turbo.Plugins.James
           		{
 	          		if (Hud.Render.GetUiElement(UiName).Visible);
 	          		{
-	            		exist = true;
-	            		break;
-	            	}
-	            	Thread.Sleep(200);	
-	      	}
+	            			exist = true;
+	            			break;
+	            		} else
+				{
+					Hud.Render.GetUiElement(UiName).Refresh();
+				}					
+				
+	            		Thread.Sleep(200);	
+	      		}
 			return exist;
 		}
 		
