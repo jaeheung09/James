@@ -16,7 +16,7 @@ namespace Turbo.Plugins.James
     public class PartyMembersGR4PlayerInfoPlugin : BasePlugin, IKeyEventHandler, IInGameTopPainter
     {
         private string WebsiteUrl;
-        private string koUrl = "https://kr.diablo3.com/ko/rankings/season/16/rift-team-4";		// ÇÑ±¹ ½ÃÁğ16 4ÀÎ ´ë±Õ ¼øÀ§
+        private string koUrl = "https://kr.diablo3.com/ko/rankings/season/16/rift-team-4";		// í•œêµ­ ì‹œì¦Œ16 4ì¸ ëŒ€ê·  ìˆœìœ„
         private string enUrl = "https://us.diablo3.com/en/rankings/season/16/rift-team-4";	// US Season16 4 PLAYER GR Ranking
         private string[,] GRiftRanking = new string[1000, 5];		// 1~1000 GR 4player BaTag1_1, Batag1_2, Ranking, Highest GRlevel, Class
         private string[,] Players = new string[4, 7];				// Players' BaTag1_1, Batag1_2,, Ranking, Highest GRlevel, Class, Ztag, soloHLevel
@@ -188,8 +188,8 @@ namespace Turbo.Plugins.James
 
 					pCnt++;
 
-					if (culture != "ko")
-						TitleStr = "ÀÌ¸§               ÆÄ¶ó°ï    Á÷¾÷        DPS    ¼ÖÇÃ   4P¼øÀ§  4P·¹º§  4PÁ÷¾÷";
+					if (culture == "ko")
+						TitleStr = "ì´ë¦„               íŒŒë¼ê³¤    ì§ì—…        DPS    ì†”í”Œ   4Pìˆœìœ„  4Pë ˆë²¨  4Pì§ì—…";
 					else
 						TitleStr = "BattleTag          Paragon   Class      DPS    Solo   4PRank  4PLevel 4PClass";
 					Battletags = (Battletags.Length == 0) ? Battletag : Battletags + Environment.NewLine + Battletag;
@@ -314,7 +314,7 @@ namespace Turbo.Plugins.James
 
         }
 
-	   // 1ÀÇ ÀÚ¸®¿¡¼­ ¹İ¿Ã¸²
+	   // 1ì˜ ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼
 	   public int UnitDigitRound(int number)
 	   {
 	   		int tmp = (number + 5) / 10 * 10;
@@ -328,7 +328,7 @@ namespace Turbo.Plugins.James
 	   		if (BeingDownloaded)
 	   		{
 	   			if (culture == "ko")
-	   				Hud.Sound.Speak("ÇöÀç ´Ù¿î¹Ş°í ÀÖ½À´Ï´Ù. ±â´Ù·Á ÁÖ¼¼¿ä.!");		// "Being downloaded. Please wait!"
+	   				Hud.Sound.Speak("í˜„ì¬ ë‹¤ìš´ë°›ê³  ìˆìŠµë‹ˆë‹¤. ê¸°ë‹¤ë ¤ ì£¼ì„¸ìš”.!");		// "Being downloaded. Please wait!"
 	   			else
 	   				Hud.Sound.Speak("Being downloaded. Please wait!");
 	   			return;
@@ -348,7 +348,7 @@ namespace Turbo.Plugins.James
 			{
 				BuildRankingDatabase(match.Value); 		// BattleTag, Ranking, Highest GRlevel, Class
 				if (culture == "ko")
-					Hud.Sound.Speak("ÀÚ·á ÁØºñ ¿Ï·á!");		// "Data is ready!"
+					Hud.Sound.Speak("ìë£Œ ì¤€ë¹„ ì™„ë£Œ!");		// "Data is ready!"
 				else
 					Hud.Sound.Speak("Data is ready!");
 			} else
@@ -436,7 +436,7 @@ namespace Turbo.Plugins.James
             	{
             		NextSpeak = 10000;
             		if (culture == "ko")
-            			Hud.Sound.Speak("µ¥ÀÌÅÍº£ÀÌ½º°¡ ±¸ÃàµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+            			Hud.Sound.Speak("ë°ì´í„°ë² ì´ìŠ¤ê°€ êµ¬ì¶•ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             		else
             			Hud.Sound.Speak("Databasae is not built yet!");
             	}
@@ -471,7 +471,7 @@ namespace Turbo.Plugins.James
             	t1 = new Thread(new ThreadStart(BuildGRiftRanking)); // just in case that it often takes long time to download the webpage
             	t1.Start();											  // start multi-threading
             	if (culture == "ko")
-            		Hud.Sound.Speak("Àá½Ã ±â´Ù·Á ÁÖ¼¼¿ä!");
+            		Hud.Sound.Speak("ì ì‹œ ê¸°ë‹¤ë ¤ ì£¼ì„¸ìš”!");
             	else
             		Hud.Sound.Speak("Please wait a moment!");
 
@@ -490,7 +490,7 @@ namespace Turbo.Plugins.James
 	   			BeingDownloaded = false;
 	   			IsDownloaded = false;
 	   			if (culture == "ko")
-	   				Hud.Sound.Speak("´Ù¿î·Îµå ¿¡·¯. Àá½Ã ÈÄ ´Ù½Ã ½ÃµµÇÏ¼¼¿ä!");
+	   				Hud.Sound.Speak("ë‹¤ìš´ë¡œë“œ ì—ëŸ¬. ì ì‹œ í›„ ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”!");
 	   			else
 	   				Hud.Sound.Speak("Download error. Please try again in a little while.");
 	   			try {
