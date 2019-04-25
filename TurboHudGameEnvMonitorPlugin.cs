@@ -34,7 +34,7 @@ namespace Turbo.Plugins.James
         	private const int LatencyBad = 80;		// if cur latency is greater than 80 ms
         	private const int FPSWarning = 40;		// if current FPS is less than 40
         	private const int FPSBad = 20;			// if cur FPS is less than 20
-		private const int mInterval = 1000; 		// Resource monitoring interval 1 sec
+		private const int mInterval = 1000; 		// Resources monitoring interval 1 sec
         	//*********************************************************************************************************
 		private int BaseX;
 		private int BaseY;
