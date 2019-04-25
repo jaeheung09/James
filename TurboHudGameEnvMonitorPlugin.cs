@@ -27,14 +27,14 @@ namespace Turbo.Plugins.James
         	private string MonitoredResource;
         	// You can set them to your prefered values (OK: color blue green, Warning: orange, Bad: red)*****
         	private const int CpuWarning = 90;		// more than cpu using 90%
-        	private const int CpuBad = 95;			// more than cpu using 90%
+        	private const int CpuBad = 95;			// more than cpu using 95%
         	private const int RamWarning = 200;		// less than 200 MB
-        	private const int RamBad = 100;			// less than 200 MB
+        	private const int RamBad = 100;			// less than 100 MB
         	private const int LatencyWarning = 50;	// if current latency is more than 50 ms
         	private const int LatencyBad = 80;		// if cur latency is 80 ms
-        	private const int FPSWarning = 40;		// if current latency is more than 50 ms
-        	private const int FPSBad = 20;			// if cur latency is 80 ms
-        	private const int mInterval = 1000; 		// fps monitoring interval 1√ 
+        	private const int FPSWarning = 40;		// if current latency is more than 40 ms
+        	private const int FPSBad = 20;			// if cur latency is 20 ms
+        	private const int mInterval = 1000; 		// fps monitoring interval 1 sec
         	//*********************************************************************************************************
 		private int BaseX;
 		private int BaseY;
