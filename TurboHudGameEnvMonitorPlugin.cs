@@ -86,8 +86,8 @@ namespace Turbo.Plugins.James
 
         	public void PaintTopInGame(ClipState clipState)
         	{
-        		if (clipState != ClipState.AfterClip) return;		// without this check, turboHUD generates more than VSync cap.
-        		if (!doFlag)	return;		// changed by the hotkey
+        		if (clipState != ClipState.AfterClip) return;		// without this check, turboHUD generates frams more than VSync cap.
+        		if (!doFlag)	return;		// toggled by the hotkey
 
         		FrameRate = CalculateFrameRate();	// count the frames for each layer while HUD is rendering the UI
 
