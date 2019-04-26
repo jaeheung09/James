@@ -44,7 +44,7 @@ namespace Turbo.Plugins.James
         	private const int LatencyBad = 80;		// if cur latency is 80 ms
         	private const int FPSWarning = 40;		// if current FPS is less than 40
         	private const int FPSBad = 20;			// if cur FPS is less than 20
-        	private const int RMInterval = 1000; 		// Resources monitoring interval 1ÃÊ
+        	private const int RMInterval = 1000; 		// Resources monitoring interval 1ì´ˆ
         	//*********************************************************************************************************
         	private string culture;
         	private string eliteNames;
@@ -126,12 +126,12 @@ namespace Turbo.Plugins.James
                if (culture == "ko")
                {
 				BuffsToWatch = new List<Buff>();
-				BuffsToWatch.Add(new Buff(262935, 0, "´É·ÂP"));
-				BuffsToWatch.Add(new Buff(266258, 0, "Àç°¨P"));
-				BuffsToWatch.Add(new Buff(266254, 0, "º¸È£P"));
-				BuffsToWatch.Add(new Buff(263029, 0, "µµ°üP"));
-				BuffsToWatch.Add(new Buff(403404, 0, "µµ°üP"));
-				BuffsToWatch.Add(new Buff(266271, 0, "¼ÓµµP"));
+				BuffsToWatch.Add(new Buff(262935, 0, "ëŠ¥ë ¥P"));
+				BuffsToWatch.Add(new Buff(266258, 0, "ì¬ê°P"));
+				BuffsToWatch.Add(new Buff(266254, 0, "ë³´í˜¸P"));
+				BuffsToWatch.Add(new Buff(263029, 0, "ë„ê´€P"));
+				BuffsToWatch.Add(new Buff(403404, 0, "ë„ê´€P"));
+				BuffsToWatch.Add(new Buff(266271, 0, "ì†ë„P"));
 			} else
 			{
 				BuffsToWatch = new List<Buff>();
@@ -224,14 +224,14 @@ namespace Turbo.Plugins.James
 
         				if (Hud.Sound.LastSpeak.TimerTest(5000))
         					if (culture == "ko")
-        						Hud.Sound.Speak("ÀüÅõ ·Î±× ¿äÃ»ÀÌ Á¢¼öµÇ¾ú½À´Ï´Ù.");
+        						Hud.Sound.Speak("ì „íˆ¬ ë¡œê·¸ ìš”ì²­ì´ ì ‘ìˆ˜ë˜ì—ˆìŠµë‹ˆë‹¤.");
         					else
         						Hud.Sound.Speak("your combat log request is received.");
         			} else
         			{
         				if (Hud.Sound.LastSpeak.TimerTest(5000))
         					if (culture == "ko")
-        						Hud.Sound.Speak("·Î±× ¿äÃ»ÀÌ ÀÌ¹Ì Á¢¼öµÈ »óÅÂÀÔ´Ï´Ù.");
+        						Hud.Sound.Speak("ë¡œê·¸ ìš”ì²­ì´ ì´ë¯¸ ì ‘ìˆ˜ëœ ìƒíƒœì…ë‹ˆë‹¤.");
         					else
         						Hud.Sound.Speak("Your log request is already received.");
         			}
@@ -242,14 +242,14 @@ namespace Turbo.Plugins.James
         		     		Logging = false;
         		     		if (Hud.Sound.LastSpeak.TimerTest(5000))
         		     			if (culture == "ko")
-        						Hud.Sound.Speak("ÀüÅõ ·Î±× ¿äÃ»ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+        						Hud.Sound.Speak("ì „íˆ¬ ë¡œê·¸ ìš”ì²­ì´ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
         					else
         						Hud.Sound.Speak("your log cancel request is canceled.");
         			} else
         			{
         				if (Hud.Sound.LastSpeak.TimerTest(5000))
         					if (culture == "ko")
-        						Hud.Sound.Speak("·Î±× ¿äÃ»ÀÌ Á¢¼öµÇÁö ¾ÊÀº »óÅÂÀÔ´Ï´Ù.");
+        						Hud.Sound.Speak("ë¡œê·¸ ìš”ì²­ì´ ì ‘ìˆ˜ë˜ì§€ ì•Šì€ ìƒíƒœì…ë‹ˆë‹¤.");
         					else
         						Hud.Sound.Speak("No log request exists..");
         			}
@@ -267,11 +267,11 @@ namespace Turbo.Plugins.James
         		if (clipState != ClipState.AfterClip) return;		// without checking this, turboHUD generates frams more than VSync cap.
         		if (!monitoring && !Logging)	return;			// if not both monitoring and logging, exit
 
+			FrameRate = CalculateFrameRate();	// count the frames for each layer while HUD is rendering the UI
+			
 			if (monitoring)
 			{
-	        		FrameRate = CalculateFrameRate();	// count the frames for each layer while HUD is rendering the UI
-	
-				switch (displayTag)
+	        		switch (displayTag)
 				{
 					case 0:	// OK state
 		          			ContentOKDecorator.Paint(BaseX, BaseY, 200, 100, HorizontalAlign.Left);
@@ -329,7 +329,7 @@ namespace Turbo.Plugins.James
 			          	}
 			          	Hud.TextLog.Log(LogFile, titleContent, aTimeStamp, true);
 			          	if (culture == "ko")
-			          		Hud.Sound.Speak("·Î±× ±â·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù!");
+			          		Hud.Sound.Speak("ë¡œê·¸ ê¸°ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤!");
 			          	else
 			          		Hud.Sound.Speak("Combat Log is completed!");
 			          		
@@ -361,9 +361,9 @@ namespace Turbo.Plugins.James
 				titleContent = string.Empty;
 				var sArea = string.Empty;
 				if (Hud.Game.SpecialArea == SpecialArea.Rift)
-					sArea = (culture == "ko") ? "ÀÏ±Õ" : "Rift";
+					sArea = (culture == "ko") ? "ì¼ê· " : "Rift";
 				else if (Hud.Game.SpecialArea == SpecialArea.GreaterRift)
-					sArea = (culture == "ko") ? "´ë±Õ" : "GRift";
+					sArea = (culture == "ko") ? "ëŒ€ê· " : "GRift";
 				try {
         				titleContent = Today + ", Season"+ Convert.ToString(Hud.Game.Me.Hero.Season) + ", " +
         			                   Hud.Game.Me.BattleTagAbovePortrait + " (" + Convert.ToString(Hud.Game.Me.Hero.Level) + "), " +
@@ -389,7 +389,7 @@ namespace Turbo.Plugins.James
 				if (match.Success)
 				{
 					if (culture == "ko")
-						area = "ÁöÇÏ " + match.Value + "Ãş";
+						area = "ì§€í•˜ " + match.Value + "ì¸µ";
 					else
 						area = "Run Level " + match.Value;
 				}
