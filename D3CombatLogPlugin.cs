@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace Turbo.Plugins.James
 {
-    public class D3CombatLogPlugin : BasePlugin, IKeyEventHandler, IInGameTopPainter
+    public class D3CombatLogPlugin : BasePlugin, IKeyEventHandler, IInGameTopPainter, INewAreaHandler
     {
     		private PerformanceCounter Cpu = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         	private PerformanceCounter Ram = new PerformanceCounter("Memory", "Available MBytes");
@@ -498,6 +498,21 @@ namespace Turbo.Plugins.James
 				}
 				catch {}
 			}        
-		}   
+		}
+		
+		// New Game initialization
+		public void OnNewArea(bool newGame, ISnoArea area)
+		{
+			if (newGame)
+			{
+	            	monitoring = false;
+	            	First = true;
+	            	Logging = false;
+	            	uiFirst = true;
+	            	aTimeStamp = false;
+	            	ScanMonsters = false;
+	            	IsGRift = false;
+			} 
+        	}				
 	}
 }
