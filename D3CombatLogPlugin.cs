@@ -62,7 +62,6 @@ namespace Turbo.Plugins.James
 		private uint savedSno;
 		private string BossTextUiName = "Root.NormalLayer.game_notify_dialog_backgroundScreen.game_text_line0";
 		private string chatEditLine = "Root.NormalLayer.chatentry_dialog_backgroundScreen.chatentry_content.chat_editline";
-		public TopLabelWithTitleDecorator PlayerDecorator { get; set; }
 		// private enum display { ok, warning, bad }
 
 	     public bool IsGuardianAlive
@@ -155,14 +154,6 @@ namespace Turbo.Plugins.James
             	MonitoredResource = string.Empty;
             	BaseX = (int)(Hud.Window.Size.Width * 0.82f);
             	BaseY = (int)(Hud.Window.Size.Height * 0.90f);
-
-			PlayerDecorator = new TopLabelWithTitleDecorator(hud)
-			{
-				BorderBrush = hud.Render.CreateBrush(255, 180, 147, 109, -1),
-				BackgroundBrush = hud.Render.CreateBrush(100, 0, 0, 0, 0),	//200
-				TextFont = hud.Render.CreateFont("tahoma", 8, 255, 255, 255, 255, true, false, false),
-				TitleFont = hud.Render.CreateFont("tahoma", 6, 255, 180, 147, 109, true, false, false),
-			};
 
 		     ContentOKDecorator = new TopLabelDecorator(Hud)
 		     {
