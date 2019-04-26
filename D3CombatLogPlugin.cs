@@ -244,7 +244,7 @@ namespace Turbo.Plugins.James
         		     			if (culture == "ko")
         						Hud.Sound.Speak("전투 로그 요청이 취소되었습니다.");
         					else
-        						Hud.Sound.Speak("your log cancel request is canceled.");
+        						Hud.Sound.Speak("your log request is canceled.");
         			} else
         			{
         				if (Hud.Sound.LastSpeak.TimerTest(5000))
