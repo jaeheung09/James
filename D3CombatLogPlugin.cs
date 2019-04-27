@@ -386,7 +386,7 @@ namespace Turbo.Plugins.James
 				}
 				string timeNow = DateTime.Now.ToString("HH:mm:ss");
 				titleContent = timeNow + ",  " + Convert.ToString((int)Hud.Game.RiftPercentage) + " %, " + MonitoredLog + " : " +area;
-				if (Hud.Game.IsEliteOnScreen)
+				if (Hud.Game.IsEliteOnScreen && eliteNames != string.Empty)
 				{
 					eliteNames = Regex.Replace(eliteNames, @", $", string.Empty);
 					titleContent += ", Elite (" + eliteNames + ")";
