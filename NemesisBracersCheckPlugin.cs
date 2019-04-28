@@ -78,7 +78,7 @@ namespace Turbo.Plugins.James
 		  y = 20;
 		  NemesisPlayerDecorator.Paint(x, y , w, h, NemStr, "Nemesis bracers");
 		  
-		  if (Hud.Render.GetUiElement("Root.NormalLayer.rift_dialog_mainPage").Visible)
+		  if (Hud.Render.GetUiElement("Root.NormalLayer.rift_dialog_mainPage").Visible || Hud.Render.GetUiElement("Root.NormalLayer.rift_dialog_mainPage.LayoutRoot.RiftTierLevelCombo").Visible)
 		  {
 		      var me = Hud.Game.Me;
 		      if (NemesisCount == 0)
