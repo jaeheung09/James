@@ -139,7 +139,7 @@ namespace Turbo.Plugins.James
 			if (match.Success)
 			{
 				Success = Int32.TryParse(match.Value, out GpuUse);
-				if (Success && GpuUse > 0 && GpuUse < 100)
+				if (Success && GpuUse > 0 && GpuUse <= 100)
 					GpuText = "Gpu Usuage : " + Convert.ToString(GpuUse) + " %";
 			}
 
