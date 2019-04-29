@@ -154,9 +154,11 @@ namespace Turbo.Plugins.James
 				
 			if (FrameRate < FPSBad && cLatency < LatencyWarning && CpuUse < CpuWarning && RamUse > RamWarning)
 			{
-				Console.Beep(800, 200);
 				if (Hud.Sound.LastSpeak.TimerTest(4000))
-					Hud.Sound.Speak("Low FPS warning! Check your background application and close it. particularly a web page!"); // "FPS°¡ ºñÁ¤»óÀûÀ¸·Î ³·½À´Ï´Ù. ¹é±×¶ó¿îµå ÇÁ·Î±×·¥À» È®ÀÎÇÏ½Ã°í ÇÊ¿ä½Ã Á¾·áÇÏ¼¼¿ä. Æ¯È÷ À¥ÆäÀÌÁö Á¶½É!"
+				{
+					Console.Beep(800, 200);
+					Hud.Sound.Speak("Low FPS warning! Check your background application and close it. particularly a web page!"); // "FPSê°€ ë¹„ì •ìƒì ìœ¼ë¡œ ë‚®ìŠµë‹ˆë‹¤. ë°±ê·¸ë¼ìš´ë“œ í”„ë¡œê·¸ë¨ì„ í™•ì¸í•˜ì‹œê³  í•„ìš”ì‹œ ì¢…ë£Œí•˜ì„¸ìš”. íŠ¹íˆ ì›¹í˜ì´ì§€ ì¡°ì‹¬!"
+				}
 			}
 			
 			var CpuText = "Cpu Usuage : " + Convert.ToString(CpuUse) + " %";
