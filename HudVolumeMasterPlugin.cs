@@ -47,14 +47,11 @@ namespace Turbo.Plugins.James
 			{
 				if (Char.IsDigit(match.Value[0]))
 				{
-				//match = Regex.Match(lineStr, @"\d{1,}");	// extract a number
-				//if (match.Success)
-				//{
 					tmp = Int32.Parse(match.Value);
 					if (tmp < 0 || tmp > 100)
 					{
 						MasterVolume = 80;			// default volume
-						defaultVal = (culture == "ko") ? "±âº»°ª " : "default value ";
+						defaultVal = (culture == "ko") ? "ê¸°ë³¸ê°’ " : "default value ";
 					} else
 						MasterVolume = tmp;
 				} else
@@ -63,7 +60,7 @@ namespace Turbo.Plugins.James
 	        			{
 	        				Console.Beep(300, 200);
 	        				if (culture == "ko")
-	        					Hud.Sound.Speak("Çãµå º¼·ı ¼³Á¤ ¿¡·¯!");
+	        					Hud.Sound.Speak("í—ˆë“œ ë³¼ë¥¨ ì„¤ì • ì—ëŸ¬!");
 	        				else
 	        					Hud.Sound.Speak("Hud volume setting error!");
 	        			}
@@ -74,7 +71,7 @@ namespace Turbo.Plugins.James
         			if (Hud.Sound.LastSpeak.TimerTest(5000))
         			{
         				if (culture == "ko")
-        					Hud.Sound.Speak("Çãµå º¼·ıÀÌ " + defaultVal + Convert.ToString(MasterVolume) + "À¸·Î ¼³Á¤ µÇ¾ú½À´Ï´Ù..");
+        					Hud.Sound.Speak("í—ˆë“œ ë³¼ë¥¨ì´ " + defaultVal + Convert.ToString(MasterVolume) + "ìœ¼ë¡œ ì„¤ì • ë˜ì—ˆìŠµë‹ˆë‹¤..");
         				else
         					Hud.Sound.Speak("Current Hud volume is set to " + defaultVal + Convert.ToString(MasterVolume));
         			}
