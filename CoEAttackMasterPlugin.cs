@@ -63,7 +63,7 @@ namespace Turbo.Plugins.James
 				SoundFileExist = true;
 			} else
 			{
-				Hud.Sound.Speak("No such wave file in the directory!");
+				Hud.Sound.Speak("No such sound file in the directory!");
 				SoundFileExist = false;
 			}
 		}
@@ -86,13 +86,13 @@ namespace Turbo.Plugins.James
 			
 			RuleCalculator = new BuffRuleCalculator(Hud);
 			
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ∫Ò¿¸
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ≥√±‚
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // »≠ø∞
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ω≈º∫
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // π¯∞≥
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // π∞∏Æ
-			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // µ∂
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 1, MinimumIconCount = 0, DisableName = true }); // ÎπÑÏ†Ñ
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 2, MinimumIconCount = 0, DisableName = true }); // ÎÉâÍ∏∞
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 3, MinimumIconCount = 0, DisableName = true }); // ÌôîÏóº
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 4, MinimumIconCount = 0, DisableName = true }); // Ïã†ÏÑ±
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 5, MinimumIconCount = 0, DisableName = true }); // Î≤àÍ∞ú
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 6, MinimumIconCount = 0, DisableName = true }); // Î¨ºÎ¶¨
+			RuleCalculator.Rules.Add(new BuffRule(430674) { IconIndex = 7, MinimumIconCount = 0, DisableName = true }); // ÎèÖ
         	}
 
         	private IEnumerable<BuffRule> GetCurrentRules(HeroClass heroClass)
@@ -121,14 +121,14 @@ namespace Turbo.Plugins.James
         	  		if (TextMsg)
         	  		{
         	  			if (culture == "ko")
-        	  				Hud.Sound.Speak("πÆ¿⁄ æ»≥ª ≥°!");
+        	  				Hud.Sound.Speak("Î¨∏Ïûê ÏïàÎÇ¥ ÎÅù!");
         	  			else
         	  				Hud.Sound.Speak("Text guide stops!");
         	  			TextMsg = false;
         	  		} else
         	  		{
         	  			if (culture == "ko")
-        	  				Hud.Sound.Speak("πÆ¿⁄ æ»≥ª Ω√¿€!");
+        	  				Hud.Sound.Speak("Î¨∏Ïûê ÏïàÎÇ¥ ÏãúÏûë!");
         	  			else
         	  				Hud.Sound.Speak("Text guide starts!");
         	  			TextMsg = true;
@@ -142,14 +142,14 @@ namespace Turbo.Plugins.James
         	  		if (Speak)
         	  		{
         	  			if (culture == "ko")
-        	  				Hud.Sound.Speak("º“∏Æ æ»≥ª ≥°!");
+        	  				Hud.Sound.Speak("ÏÜåÎ¶¨ ÏïàÎÇ¥ ÎÅù!");
         	  			else
         	  				Hud.Sound.Speak("Sound guide stops!");
         	  			Speak = false;
         	  		} else
         	  		{
         	  			if (culture == "ko")
-        	  				Hud.Sound.Speak("º“∏Æ æ»≥ª Ω√¿€!");
+        	  				Hud.Sound.Speak("ÏÜåÎ¶¨ ÏïàÎÇ¥ ÏãúÏûë!");
         	  			else
         	  				Hud.Sound.Speak("Sound guide starts!");
         	  			Speak = true;
@@ -286,7 +286,7 @@ namespace Turbo.Plugins.James
 		     		{
 			     		if (SoundFileExist) ReadyToAttack.PlaySync();
 			     		if (culture == "ko")
-			     			msg = "∞¯∞› ¡ÿ∫Ò!";
+			     			msg = "Í≥µÍ≤© Ï§ÄÎπÑ!";
 			     		else
 			     			msg = "Ready to attack!";
 			     		Hud.Sound.Speak(msg);
@@ -296,8 +296,8 @@ namespace Turbo.Plugins.James
 					string msgTitle = string.Empty;
 					if (culture == "ko")
 					{
-						msg = ">>> ∞¯∞› ¡ÿ∫Ò <<<";
-						msgTitle = " ¡ÿ ∫Ò !";
+						msg = ">>> Í≥µÍ≤© Ï§ÄÎπÑ <<<";
+						msgTitle = " Ï§Ä ÎπÑ !";
 					} else
 					{
 						msg = ">>> Ready to attack <<<";
@@ -330,7 +330,7 @@ namespace Turbo.Plugins.James
 				CountTimer.Enabled = true;
 
 				if (culture == "ko")
-					msg = "∞¯∞›!";
+					msg = "Í≥µÍ≤©!";
 				else
 					msg = "Attack!";
 				Hud.Sound.Speak(msg);
@@ -340,8 +340,8 @@ namespace Turbo.Plugins.James
 				string msgTitle = string.Empty;
 				if (culture == "ko")
 				{
-					msg = ">>> ∞¯ ∞› !!! <<<";
-					msgTitle = "* ¡ˆ±› ¡¡æ∆! *";
+					msg = ">>> Í≥µ Í≤© !!! <<<";
+					msgTitle = "* ÏßÄÍ∏à Ï¢ãÏïÑ! *";
 				} else
 				{
 					msg = ">>> Attack !!! <<<";
