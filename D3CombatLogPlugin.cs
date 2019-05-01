@@ -522,7 +522,7 @@ namespace Turbo.Plugins.James
 			} else
 				displayTag = 0;	// ok
 
-			if (FrameRate < FPSBad && cLatency > LatencyWarning && CpuUse > CpuWarning && RamUse < RamWarning)
+			if (FrameRate > FPSBad && cLatency < LatencyWarning && CpuUse < CpuWarning && RamUse > RamWarning)
 			{
 				if (FPSWarningCnt++ > 5 && Hud.Sound.LastSpeak.TimerTest(4000))
 				{
