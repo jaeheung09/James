@@ -113,7 +113,7 @@ namespace Turbo.Plugins.James
 		  		{
 		  			string tmp;
 		  			if (culture == "ko")
-		  				tmp = "ÇöÀç ±Õ¿­¼® " + keys + "°³ º¸À¯Áß ÀÔ´Ï´Ù.";
+		  				tmp = "í˜„ìž¬ ê· ì—´ì„ " + keys + "ê°œ ë³´ìœ ì¤‘ ìž…ë‹ˆë‹¤.";
 		  			else
 		  				tmp = "You have " + keys + " rift keystone.";
 		  			Hud.Sound.Speak(tmp);
@@ -123,7 +123,7 @@ namespace Turbo.Plugins.James
 		  		interval = 1000;
 		  		
 		  	IsGRiftDialog = false;
-			if (Hud.Window.Size.Width == 1920 || Hud.Window.Size.Height == 1080)
+			if (Hud.Window.Size.Width == 1920 && Hud.Window.Size.Height == 1080)
 			{
 				ScanPlayer = true;
 	        		// Check Grift dialog popup windwow invoked by another player
@@ -172,13 +172,13 @@ namespace Turbo.Plugins.James
 				y = 20;
 			}
 
-			var tmp = (culture == "ko") ? "Ãµ¹ú ¼Õ¸ñ" : "Nemesis Bracers";
+			var tmp = (culture == "ko") ? "ì²œë²Œ ì†ëª©" : "Nemesis Bracers";
 			NemesisPlayerDecorator.Paint(x, y , w, h, NemStr, tmp);
 			if (Hud.Render.GetUiElement("Root.NormalLayer.rift_dialog_mainPage").Visible || IsGRiftDialog)
 			{
 				if (NemesisCount == 0)
 				{
-					WarningMsg = (culture == "ko") ? "Ãµ¹ú Âø¿ëÀÚ ¾øÀ½!" : "No one with Nemesis Bracers!";
+					WarningMsg = (culture == "ko") ? "ì²œë²Œ ì°©ìš©ìž ì—†ìŒ!" : "No one with Nemesis Bracers!";
 					WarningMessageDecorator.Paint(layer, null, me.FloorCoordinate.Offset(0, 0, 15), WarningMsg);
 					if(Hud.Sound.LastSpeak.TimerTest(5000))
 					{
@@ -187,7 +187,7 @@ namespace Turbo.Plugins.James
 					}
 				} else if (NemesisCount > 1)
 				{
-					WarningMsg = (culture == "ko") ? "Ãµ¹ú Âø¿ëÀÚ 2¸í ÀÌ»ó -> " : "More than one with Nemesis -> ";
+					WarningMsg = (culture == "ko") ? "ì²œë²Œ ì°©ìš©ìž 2ëª… ì´ìƒ -> " : "More than one with Nemesis -> ";
 					WarningMsg += NemesisCount.ToString("0");
 					NoticeMessageDecorator.Paint(layer, null, me.FloorCoordinate.Offset(0, 0, 15), WarningMsg);
 				}
