@@ -211,6 +211,7 @@ namespace Turbo.Plugins.James
 			Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
 			Graphics screenGraph = Graphics.FromImage(screenPixel);
 			screenGraph.CopyFromScreen(x, y, 0, 0, SystemInformation.VirtualScreen.Size, CopyPixelOperation.SourceCopy);
+			screenGraph.Dispose();
 			return screenPixel.GetPixel(0, 0);
 		}
     	}
