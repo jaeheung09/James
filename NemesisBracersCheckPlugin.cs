@@ -106,6 +106,8 @@ namespace Turbo.Plugins.James
         	{
         		if (!Hud.Game.IsInTown) return;
 
+			ScanPlayer = true;
+			
 		  	keys = (int)Hud.Game.Me.Materials.GreaterRiftKeystone;
 		  	if (Hud.Render.GetUiElement("Root.NormalLayer.rift_dialog_mainPage.LayoutRoot.RiftTierLevelCombo").Visible)
 		  	{
@@ -125,7 +127,6 @@ namespace Turbo.Plugins.James
 		  	IsGRiftDialog = false;
 			if (Hud.Window.Size.Width == 1920 && Hud.Window.Size.Height == 1080)
 			{
-				ScanPlayer = true;
 	        		// Check Grift dialog popup windwow invoked by another player
 	            	Color pixelColor = GetScreenPixel(1006, 766);		// Check Green
 				if (pixelColor.R.Equals(0x00) && pixelColor.G.Equals(0xDE) && pixelColor.B.Equals(0x00))		// 0, 222, 0
