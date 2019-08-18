@@ -12,8 +12,8 @@ namespace Turbo.Plugins.James
 	   public IKeyEvent PressKeyEvent { get; set; }		// Show or not F12
         private float OriginalSheetDPS;
         private float OriginalSheetEHP;
-        private float DPSGap;
-        private float EHPGap;
+        private double DPSGap;
+        private double EHPGap;
         private bool First;
         private bool Show;
         private string ShowCont;
